@@ -1,0 +1,82 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+  active?: string;
+}
+
+const {
+  title,
+  description = "QA engineer, writer, artist, filmmaker. Wahidul Alam Nahid's portfolio.",
+  active = '',
+} = Astro.props;
+
+const navItems = [
+  { href: '/#about', label: 'About', key: 'about' },
+  { href: '/#expertise', label: 'Expertise', key: 'expertise' },
+  { href: '/#work', label: 'Work', key: 'work' },
+  { href: '/#dispatches', label: 'Dispatches', key: 'dispatches' },
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@500;600;700;800;900&family=Onest:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="wrap">
+      <a class="logo" href="/">Wahidul Alam Nahid</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="navlinks" id="navlinks">
+        {navItems.map((item) => (
+          <li><a href={item.href} class={active === item.key ? 'active' : ''}>{item.label}</a></li>
+        ))}
+        <li><a class="btn" href="/#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <slot />
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const navlinks = document.getElementById('navlinks');
+    toggle?.addEventListener('click', () => {
+      const isOpen = navlinks?.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(Boolean(isOpen)));
+    });
+    navlinks?.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => {
+        navlinks.classList.remove('open');
+        toggle?.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>
+        <div class="fname">Wahidul Alam Nahid</div>
+        <div class="floc">Dhaka, Bangladesh</div>
+      </div>
+      <ul class="footlinks">
+        {navItems.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

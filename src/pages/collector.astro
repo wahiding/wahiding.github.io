@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const focus = [
+  { title: 'Coin Collecting', body: 'World coins, chosen for history over market value.' },
+  { title: 'Provenance', body: "Interested in where a piece has been, not just what it's made of." },
+  { title: 'Small-Scale Curation', body: 'A personal archive, not an investment.' },
+];
+---
+<Layout title="Collector — Wahidul Alam Nahid">
+
+  <div class="draft-banner">⚠ Draft copy — written to match tone/structure, needs Wahid's real voice before publishing</div>
+
+  <header class="persona-hero" style="--accent: var(--plum);">
+    <div class="disc-solo"></div>
+    <div class="wrap">
+      <span class="kicker" style="color:var(--plum);">Section 06 — Collector</span>
+      <h1>Coins, kept for the story, not the value.</h1>
+      <p class="lede">A small, ongoing collection — each coin chosen because of where it's been, not what it's worth.</p>
+    </div>
+  </header>
+
+  <section class="persona-body" style="--accent: var(--plum);">
+    <div class="wrap">
+      <div class="persona-copy">
+        <p>I don't collect for appraisal value. A worn coin from a country I've never visited, carried by hands I'll never know, is more interesting to me than a mint-condition one that's only interesting because of its price tag.</p>
+        <p>It's a quieter version of the same instinct behind everything else here: notice the detail everyone else skips past, and ask what story it's actually telling.</p>
+      </div>
+      <div class="focus-grid">
+        <span class="kicker" style="color:var(--plum);">Focus Areas</span>
+        {focus.map((f) => (
+          <div class="focus-card" style="--accent: var(--plum);">
+            <h3>{f.title}</h3>
+            <p>{f.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="back-link wrap"><a class="btn-ghost" href="/">← Back home</a></div>
+
+</Layout>

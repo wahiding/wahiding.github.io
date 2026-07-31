@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const focus = [
+  { title: 'Backend & API Testing', body: 'Schema validation, business rules, integration edge cases.' },
+  { title: 'Root-Cause Analysis', body: 'Correlation-ID tracing across services before a bug gets raised.' },
+  { title: 'QA Tooling', body: 'Automation-assisted failure triage, acceptance-criteria review workflows.' },
+];
+---
+<Layout title="QA Engineer — Wahidul Alam Nahid" active="work">
+
+  <header class="persona-hero" style="--accent: var(--rust);">
+    <div class="disc-solo"></div>
+    <div class="wrap">
+      <span class="kicker" style="color:var(--rust);">Section 01 — QA Engineer</span>
+      <h1>Every system is a claim. My job is to test the claim.</h1>
+      <p class="lede">I work backend and API testing on Ding's payments platform — tracing a failure from a Jenkins log back to the line that broke it, then documenting it so no one has to trace it twice.</p>
+    </div>
+  </header>
+
+  <section class="persona-body" style="--accent: var(--rust);">
+    <div class="wrap">
+      <div class="persona-copy">
+        <p>A defect rarely announces itself. It hides in a currency format, a feature flag left half-toggled, a race condition that only shows up under load. My work is the process of narrowing that down — schema, required fields, business rules, edge cases — until the root cause is undeniable, not just plausible.</p>
+        <p>The most useful bug report isn't the one that says "it's broken." It's the one with the correlation ID, the environment, the exact steps, and a clear line between symptom and cause. Writing has always been part of testing, for me — the report is what makes the fix possible.</p>
+        <p>Lately that's meant building tools rather than just running them: automation that classifies failed test runs by likely root cause, workflows that pull ticket context and cross-check it against a pull request before a human ever has to open both tabs.</p>
+      </div>
+      <div class="focus-grid">
+        <span class="kicker" style="color:var(--rust);">Focus Areas</span>
+        {focus.map((f) => (
+          <div class="focus-card" style="--accent: var(--rust);">
+            <h3>{f.title}</h3>
+            <p>{f.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="back-link wrap"><a class="btn-ghost" href="/">← Back home</a></div>
+
+</Layout>

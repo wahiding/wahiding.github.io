@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const focus = [
+  { title: 'Watercolor & Ink Studies', body: 'Small architectural and landscape sketches — doorways, bridges, houses, quiet corners.' },
+  { title: 'Process Over Product', body: 'Sketches and studies valued as much as finished pieces.' },
+  { title: 'Visual Attention', body: 'The same close-noticing habit as QA, pointed at a canvas instead of a screen.' },
+];
+
+const gallery = [
+  { src: '/images/paintings/01-landscape.jpg', alt: 'Acrylic landscape — sunset over a lake with a cabin' },
+  { src: '/images/paintings/02-sketch.jpg', alt: 'Watercolor sketch — seaside cottage with flowers' },
+  { src: '/images/paintings/03-sketch.jpg', alt: 'Watercolor and ink sketch — barn and silo' },
+  { src: '/images/paintings/04-sketch.jpg', alt: 'Watercolor and ink sketch — countryside house with trees' },
+  { src: '/images/paintings/05-sketch.jpg', alt: 'Watercolor and ink sketch — stone farmhouse' },
+  { src: '/images/paintings/06-sketch.jpg', alt: 'Watercolor and ink sketch — village alley door' },
+  { src: '/images/paintings/07-sketch.jpg', alt: 'Ink and wash sketch — domed tower with lit window' },
+  { src: '/images/paintings/08-sketch.jpg', alt: 'Watercolor and ink sketch — stone bridge and arched door' },
+  { src: '/images/paintings/09-sketch.jpg', alt: 'Watercolor and ink sketch — blue door with potted cacti' },
+  { src: '/images/paintings/10-sketch.jpg', alt: 'Watercolor and ink sketch — wooden townhouse with a car' },
+  { src: '/images/paintings/11-sketch.jpg', alt: 'Ink and wash sketch — domed towers and birds' },
+];
+---
+<Layout title="Artist — Wahidul Alam Nahid">
+
+  <div class="draft-banner">⚠ Prose below is draft copy, still needs Wahid's real voice — but the gallery is real, unedited work</div>
+
+  <div class="wrap">
+    <div class="persona-cover"><img src="/images/artist-cover.png" alt="Flat-lay of paint, brushes, and a work-in-progress painting of an orange doorway" /></div>
+  </div>
+
+  <header class="persona-hero" style="--accent: var(--avocado); padding-top:0;">
+    <div class="disc-solo"></div>
+    <div class="wrap">
+      <span class="kicker" style="color:var(--avocado);">Section 03 — Artist</span>
+      <h1>Mood before precision.</h1>
+      <p class="lede">Where QA is about narrowing down to one exact cause, painting is the opposite discipline — staying with something before it resolves into meaning.</p>
+    </div>
+  </header>
+
+  <section class="persona-body" style="--accent: var(--avocado);">
+    <div class="wrap">
+      <div class="persona-copy">
+        <p>Most of my week is spent making sure a system behaves exactly as specified. Painting is the deliberate exception — no spec, no expected result, just color and instinct until something on the page feels true.</p>
+        <p>The work leans toward small watercolor and ink studies — doorways, bridges, quiet houses — plus the occasional bolder acrylic landscape. It's less about finishing a piece than about staying present with an uncertain process, which is a muscle that testing doesn't ask for and painting does.</p>
+        <p>I don't treat this as a parallel career — it's closer to cross-training. Looking at color and composition long enough sharpens the same attention I bring to a UI review.</p>
+      </div>
+      <div class="focus-grid">
+        <span class="kicker" style="color:var(--avocado);">Focus Areas</span>
+        {focus.map((f) => (
+          <div class="focus-card" style="--accent: var(--avocado);">
+            <h3>{f.title}</h3>
+            <p>{f.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <span class="kicker" style="color:var(--avocado);">Gallery</span>
+      <div class="gallery-grid">
+        {gallery.map((g) => (
+          <figure><img src={g.src} alt={g.alt} loading="lazy" /></figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="back-link wrap"><a class="btn-ghost" href="/">← Back home</a></div>
+
+</Layout>

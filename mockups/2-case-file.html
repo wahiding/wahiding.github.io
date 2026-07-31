@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concept B — Case File</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --kraft:#DCCBA6; --kraft-deep:#CBB58A; --ink:#241F16; --ink-soft:#4E4531;
+    --stamp:#9E2B1F; --brass:#8A6A2A; --rule:rgba(36,31,22,.28);
+    --display:"Fraunces",serif; --mono:"JetBrains Mono",monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--kraft);color:var(--ink);font-family:var(--mono);font-size:16px;line-height:1.6;
+    background-image: repeating-linear-gradient(45deg, rgba(0,0,0,.015) 0px, rgba(0,0,0,.015) 2px, transparent 2px, transparent 6px);}
+  .concept-tag{background:var(--ink); color:var(--kraft); font-size:.72rem; letter-spacing:.08em; text-align:center; padding:.4rem; text-transform:uppercase;}
+  .file{max-width:980px;margin:2.5rem auto;border:2px solid var(--ink);background:var(--kraft-deep);position:relative;}
+  .file::before{content:"";position:absolute;top:-14px;left:36px;width:110px;height:28px;background:var(--kraft-deep);border:2px solid var(--ink);border-bottom:none;}
+  .file-head{padding:1.6rem 2rem 1.2rem;border-bottom:2px solid var(--ink);}
+  .file-head .row{display:flex;justify-content:space-between;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:.6rem;}
+  .file-head h1{font-family:var(--display);font-weight:700;font-size:clamp(1.9rem,4.5vw,2.8rem);margin:0;letter-spacing:-.01em;}
+  .status{display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;margin-top:.5rem;color:var(--stamp);font-weight:700;}
+  .status::before{content:"●";}
+  .stamp{position:absolute;top:22px;right:34px;border:3px solid var(--stamp);color:var(--stamp);font-family:var(--mono);font-weight:700;font-size:.95rem;letter-spacing:.1em;padding:.3rem .7rem;transform:rotate(-9deg);opacity:.85;text-transform:uppercase;}
+  .tabs{display:flex;flex-wrap:wrap;gap:0;border-bottom:2px solid var(--ink);background:var(--kraft);}
+  .tabs span{padding:.7rem 1.1rem;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;border-right:1px solid var(--rule);color:var(--ink-soft);}
+  .tabs span.active{background:var(--kraft-deep);color:var(--ink);font-weight:700;}
+  .body-pad{padding:2rem;}
+  .lede{max-width:60ch;font-size:1rem;color:var(--ink-soft);margin-bottom:1.8rem;}
+  .lede b{color:var(--ink);}
+  .fork{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;}
+  .card{border:2px solid var(--ink);background:var(--kraft);padding:1.6rem;text-decoration:none;color:var(--ink);display:block;position:relative;}
+  .card:hover{background:var(--kraft-deep);}
+  .card .kicker{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--brass);display:block;margin-bottom:.7rem;font-weight:700;}
+  .card h3{font-family:var(--display);font-size:1.35rem;margin:0 0 .6rem;}
+  .card p{font-size:.88rem;color:var(--ink-soft);margin:0 0 1rem;max-width:34ch;}
+  .log{list-style:none;padding:0;margin:0 0 1.2rem;font-size:.8rem;color:var(--ink-soft);}
+  .log li{padding:.3rem 0;border-top:1px dotted var(--rule);}
+  .log li:first-child{border-top:none;}
+  .log b{color:var(--brass);}
+  .go{font-size:.8rem;border-bottom:1px solid var(--ink);padding-bottom:2px;display:inline-block;}
+  .card:hover .go{color:var(--stamp);border-color:var(--stamp);}
+  footer{max-width:980px;margin:1rem auto 3rem;font-size:.72rem;color:var(--ink-soft);text-align:center;letter-spacing:.06em;text-transform:uppercase;}
+  @media (max-width:700px){.fork{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="concept-tag">Concept B — Case File</div>
+
+<div class="file">
+  <div class="stamp">Open Case</div>
+  <div class="file-head">
+    <div class="row"><span>Case No. 0417</span><span>Dhaka, Bangladesh</span></div>
+    <h1>Wahidul Alam Nahid</h1>
+    <div class="status">Active Investigation</div>
+  </div>
+  <div class="tabs">
+    <span class="active">Overview</span><span>QA</span><span>Writer</span><span>Artist</span><span>Filmmaker</span><span>Psychology</span><span>Collector</span>
+  </div>
+  <div class="body-pad">
+    <p class="lede"><b>Subject profile:</b> a QA engineer who tests payment systems for a living, and a handful of other identities that show up after hours — writer, painter, filmmaker, amateur psychologist, coin collector. All filed under one case number.</p>
+
+    <div class="fork">
+      <a class="card" href="#">
+        <span class="kicker">Quick Brief</span>
+        <h3>Hiring? Start here.</h3>
+        <p>QA Engineer, Platform &amp; Partners — Ding. Backend &amp; API testing, root-cause analysis, CI/CD automation.</p>
+        <ul class="log">
+          <li><b>001</b> Backend &amp; API Testing</li>
+          <li><b>002</b> Root-Cause Analysis</li>
+          <li><b>003</b> QA Tooling &amp; Automation</li>
+        </ul>
+        <span class="go">View résumé &amp; contact →</span>
+      </a>
+      <a class="card" href="#">
+        <span class="kicker">Full Case File</span>
+        <h3>Open the evidence log</h3>
+        <p>Every other identity, filed as its own exhibit — writing, painting, film, psychology, coins.</p>
+        <ul class="log">
+          <li><b>004</b> Writer — <em>23 er Diary</em></li>
+          <li><b>005</b> Artist, Filmmaker, Psychology</li>
+          <li><b>006</b> Collector — world coins</li>
+        </ul>
+        <span class="go">Browse all exhibits →</span>
+      </a>
+    </div>
+  </div>
+</div>
+<footer>Concept mockup — not final content</footer>
+</body>
+</html>

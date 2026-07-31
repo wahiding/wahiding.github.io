@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concept C — Curiosity Cabinet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --wood:#20241F; --wood-deep:#171A15; --parchment:#EFE6D2; --brass:#C6A05A;
+    --brass-dim:#8E7541; --rule:rgba(239,230,210,.22);
+    --display:"Cormorant Garamond",serif; --mono:"JetBrains Mono",monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--wood);color:var(--parchment);font-family:var(--mono);font-size:16px;line-height:1.6;
+    background-image: radial-gradient(circle at 50% 0%, rgba(198,160,90,.08), transparent 60%);}
+  .concept-tag{background:var(--brass); color:var(--wood-deep); font-size:.72rem; letter-spacing:.08em; text-align:center; padding:.4rem; text-transform:uppercase; font-weight:700;}
+  header{text-align:center;padding:3.4rem 1.5rem 1.6rem;border-bottom:1px solid var(--brass-dim);}
+  .plate{display:inline-block;border:1px solid var(--brass);padding:.3rem 1rem;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);margin-bottom:1.2rem;}
+  h1{font-family:var(--display);font-weight:600;font-size:clamp(2.6rem,6vw,4.4rem);margin:0;letter-spacing:.01em;color:var(--parchment);}
+  .sub{font-family:var(--display);font-style:italic;font-size:1.3rem;color:var(--brass);margin-top:.6rem;}
+  main{max-width:1080px;margin:0 auto;padding:2.6rem 1.5rem 1rem;}
+  .intro{max-width:62ch;margin:0 auto 3rem;text-align:center;font-family:var(--display);font-size:1.25rem;font-style:italic;color:#D9CFB6;}
+  .fork{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:3rem;}
+  .case{border:1px solid var(--brass-dim);padding:2rem;text-decoration:none;color:var(--parchment);display:block;position:relative;background:linear-gradient(180deg, rgba(198,160,90,.05), transparent);transition:border-color .15s ease, background .15s ease;}
+  .case:hover{border-color:var(--brass);background:rgba(198,160,90,.09);}
+  .case .num{font-size:.72rem;letter-spacing:.14em;color:var(--brass);display:block;margin-bottom:.9rem;text-transform:uppercase;}
+  .case h3{font-family:var(--display);font-size:1.9rem;font-weight:600;margin:0 0 .7rem;color:var(--parchment);}
+  .case p{font-size:.9rem;color:#C9BE9E;max-width:36ch;margin:0 0 1.3rem;}
+  .specimens{display:flex;flex-wrap:wrap;gap:.6rem 1.1rem;margin-bottom:1.4rem;}
+  .specimens span{font-size:.74rem;color:#C9BE9E;letter-spacing:.03em;}
+  .specimens b{color:var(--brass);font-weight:500;}
+  .go{font-size:.78rem;letter-spacing:.05em;border-bottom:1px solid var(--brass-dim);padding-bottom:2px;display:inline-block;color:var(--brass);}
+  .case:hover .go{border-color:var(--brass);}
+  footer{border-top:1px solid var(--brass-dim);padding:1.6rem;text-align:center;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brass-dim);}
+  @media (max-width:700px){.fork{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="concept-tag">Concept C — Curiosity Cabinet</div>
+
+<header>
+  <span class="plate">Est. Dhaka, Bangladesh</span>
+  <h1>Wahidul Alam Nahid</h1>
+  <div class="sub">A private collection, catalogued</div>
+</header>
+
+<main>
+  <p class="intro">Six specimens under one glass case — a QA engineer, a writer, a painter, a filmmaker, a reader of psychology, and a keeper of old coins. Choose where to begin.</p>
+
+  <div class="fork">
+    <a class="case" href="#">
+      <span class="num">Curator's Summary</span>
+      <h3>Hiring? Start here.</h3>
+      <p>QA Engineer, Platform &amp; Partners — Ding. Backend &amp; API testing, root-cause analysis, CI/CD automation.</p>
+      <div class="specimens">
+        <span><b>—</b> Backend &amp; API Testing</span>
+        <span><b>—</b> Root-Cause Analysis</span>
+        <span><b>—</b> QA Tooling</span>
+      </div>
+      <span class="go">View résumé &amp; contact →</span>
+    </a>
+    <a class="case" href="#">
+      <span class="num">The Full Collection</span>
+      <h3>Enter the cabinet</h3>
+      <p>Every other specimen, catalogued and on display — writing, painting, film, psychology, coins.</p>
+      <div class="specimens">
+        <span><b>02</b> Writer</span><span><b>03</b> Artist</span><span><b>04</b> Filmmaker</span>
+        <span><b>05</b> Psychology</span><span><b>06</b> Collector</span>
+      </div>
+      <span class="go">Browse the catalog →</span>
+    </a>
+  </div>
+</main>
+<footer>Concept mockup — not final content</footer>
+</body>
+</html>

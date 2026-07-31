@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const focus = [
+  { title: 'Short Films', body: 'Mood and rhythm-driven, minimal dialogue.' },
+  { title: 'Editing', body: 'Pacing and cut placement as the primary storytelling tool.' },
+  { title: 'Observation', body: 'Same close-attention instinct as QA, pointed at a scene instead of a system.' },
+];
+---
+<Layout title="Filmmaker — Wahidul Alam Nahid">
+
+  <div class="draft-banner">⚠ Draft copy — written to match tone/structure, needs Wahid's real voice before publishing</div>
+
+  <header class="persona-hero" style="--accent: var(--maroon);">
+    <div class="disc-solo"></div>
+    <div class="wrap">
+      <span class="kicker" style="color:var(--maroon);">Section 04 — Filmmaker</span>
+      <h1>Silence carries more than dialogue usually does.</h1>
+      <p class="lede">Short films built on rhythm and image rather than plot — the camera doing the noticing, the way a good tester notices before anyone explains what's wrong.</p>
+    </div>
+  </header>
+
+  <section class="persona-body" style="--accent: var(--maroon);">
+    <div class="wrap">
+      <div class="persona-copy">
+        <p>Film is the slowest of the creative outlets I keep, and that's the point. A shot held a second too long, a cut placed where a cut shouldn't be — small decisions that only work if you're paying close attention to what the frame is actually doing, not what it's supposed to be doing.</p>
+        <p>The films lean quiet: little dialogue, more interested in rhythm and image than exposition. It's the same instinct that makes a good bug report useful — showing what happened clearly enough that no one has to be told twice.</p>
+      </div>
+      <div class="focus-grid">
+        <span class="kicker" style="color:var(--maroon);">Focus Areas</span>
+        {focus.map((f) => (
+          <div class="focus-card" style="--accent: var(--maroon);">
+            <h3>{f.title}</h3>
+            <p>{f.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="back-link wrap"><a class="btn-ghost" href="/">← Back home</a></div>
+
+</Layout>

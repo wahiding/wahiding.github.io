@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concept A — Refined Dispatch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Newsreader:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EAE2CE; --paper-deep:#DED2B4; --ink:#201B14; --ink-soft:#544A3B;
+    --redline:#A8321F; --ochre:#B87B1E; --rule:rgba(32,27,20,.22);
+    --display:"Fraunces","Georgia",serif; --body:"Newsreader",serif; --mono:"JetBrains Mono",monospace;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink); font-family:var(--body); font-size:18px; line-height:1.6;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.05), transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(0,0,0,0.04), transparent 45%),
+      repeating-linear-gradient(0deg, rgba(0,0,0,.02) 0px, rgba(0,0,0,.02) 1px, transparent 1px, transparent 3px);
+  }
+  .concept-tag{position:fixed; top:0; left:0; right:0; z-index:10; background:var(--ink); color:var(--paper); font-family:var(--mono); font-size:.72rem; letter-spacing:.08em; text-align:center; padding:.4rem; text-transform:uppercase;}
+  .masthead{border-bottom:4px double var(--ink); padding:3rem 1.5rem 1.4rem; margin-top:1.8rem;}
+  .masthead-row{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
+  .masthead-name{max-width:1200px;margin:.7rem auto 0;text-align:center;}
+  .masthead-name h1{font-family:var(--display);font-weight:700;font-size:clamp(2.6rem,7vw,5rem);margin:0;letter-spacing:-.01em;}
+  .masthead-tag{font-family:var(--mono);font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--redline);margin-top:.5rem;}
+  main{max-width:1200px;margin:0 auto;padding:0 1.5rem;}
+  .lead{padding:3rem 0 2rem;}
+  .eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ochre);display:block;margin-bottom:.7rem;}
+  .lead h2{font-family:var(--display);font-weight:600;font-size:clamp(2.2rem,5.2vw,3.6rem);margin:0 0 1rem;max-width:16ch;}
+  .lead .mark-strike{text-decoration:line-through;text-decoration-color:var(--redline);text-decoration-thickness:2px;}
+  .lead .mark-insert{color:var(--redline);}
+  .lead .mark-insert::before{content:"^"; font-family:var(--mono); font-size:.7em; vertical-align:super;}
+  .lede{font-size:1.2rem;color:var(--ink-soft);max-width:52ch;}
+  hr.rule-heavy{border:none;border-top:3px solid var(--ink);margin:1rem 0 2.6rem;}
+  .fork{display:grid;grid-template-columns:1fr 1fr;gap:0;border:2px solid var(--ink);margin-bottom:3rem;}
+  .fork > a{padding:2.4rem;text-decoration:none;color:var(--ink);position:relative;transition:background .15s ease;}
+  .fork > a:first-child{border-right:2px solid var(--ink);}
+  .fork > a:hover{background:var(--paper-deep);}
+  .fork .eyebrow{margin-bottom:1rem;}
+  .fork h3{font-family:var(--display);font-size:1.7rem;font-weight:600;margin:0 0 .8rem;}
+  .fork p{color:var(--ink-soft);font-size:1rem;max-width:36ch;margin:0 0 1.4rem;}
+  .fork ul{list-style:none;padding:0;margin:0 0 1.6rem;font-family:var(--mono);font-size:.86rem;color:var(--ink-soft);}
+  .fork li{padding:.35rem 0;border-top:1px dashed var(--rule);}
+  .fork li:first-child{border-top:none;}
+  .fork .go{font-family:var(--mono);font-size:.85rem;border-bottom:1px solid var(--ink);padding-bottom:2px;display:inline-block;}
+  .fork > a:hover .go{color:var(--redline);border-color:var(--redline);}
+  .tags-mini{display:flex;flex-wrap:wrap;gap:.5rem 1rem;}
+  .tags-mini span{font-family:var(--mono);font-size:.78rem;color:var(--ink-soft);}
+  .tags-mini b{color:var(--ochre);}
+  footer{border-top:3px solid var(--ink);margin-top:2rem;padding:1.6rem 1.5rem 2.4rem;background:var(--paper-deep);font-family:var(--mono);font-size:.78rem;color:var(--ink-soft);text-align:center;}
+  @media (max-width:760px){.fork{grid-template-columns:1fr;} .fork>a:first-child{border-right:none;border-bottom:2px solid var(--ink);}}
+</style>
+</head>
+<body>
+<div class="concept-tag">Concept A — Refined Dispatch</div>
+
+<header class="masthead">
+  <div class="masthead-row"><span>Vol. II — Dhaka Edition</span><span>Est. 2024</span></div>
+  <div class="masthead-name">
+    <h1>Wahidul Alam Nahid</h1>
+    <div class="masthead-tag">A dispatch in six sections</div>
+  </div>
+</header>
+
+<main>
+  <section class="lead">
+    <span class="eyebrow">Lead Story</span>
+    <h2>I <span class="mark-strike">find</span> <span class="mark-insert">bugs</span> on purpose, so your users don't have to.</h2>
+    <p class="lede">QA engineer by day, tracing failures back through logs and pipelines. Off the clock, the same instinct turns toward words, film, and paint.</p>
+  </section>
+
+  <hr class="rule-heavy">
+
+  <div class="fork">
+    <a href="#">
+      <span class="eyebrow">Fast Path</span>
+      <h3>Hiring? Start here.</h3>
+      <p>QA Engineer, Platform &amp; Partners — Ding. Backend &amp; API testing, root-cause analysis, CI/CD automation.</p>
+      <ul>
+        <li>Backend &amp; API Testing</li>
+        <li>Root-Cause Analysis</li>
+        <li>QA Tooling &amp; Automation</li>
+      </ul>
+      <span class="go">View résumé &amp; contact →</span>
+    </a>
+    <a href="#">
+      <span class="eyebrow">Everyone Else</span>
+      <h3>The full dispatch</h3>
+      <p>QA is one chapter. The rest: writing, painting, film, psychology, a coin collection filed under one byline.</p>
+      <div class="tags-mini">
+        <span><b>02</b> Writer</span><span><b>03</b> Artist</span><span><b>04</b> Filmmaker</span>
+        <span><b>05</b> Psychology</span><span><b>06</b> Collector</span>
+      </div>
+      <p></p>
+      <span class="go">Start reading →</span>
+    </a>
+  </div>
+</main>
+
+<footer>Printed digitally in Dhaka · Concept mockup — not final content</footer>
+</body>
+</html>

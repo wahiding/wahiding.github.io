@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concept E — Vibrant Modern Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@500;600;700;800;900&family=Onest:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFBF3; --bg-alt-1:#FFF1E6; --bg-alt-2:#F1EEFF; --ink:#181422; --ink-soft:#5D5670;
+    --coral:#FF3D68; --teal:#00BFA0; --violet:#7C5CFF; --amber:#FFB100; --sky:#2FB7FF;
+    --line:rgba(24,20,34,.1);
+    --display:"Urbanist",sans-serif; --body:"Onest",sans-serif; --mono:"Space Mono",monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;}
+  .concept-tag{background:linear-gradient(90deg,var(--coral),var(--violet),var(--teal));color:#fff;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-align:center;padding:.45rem;text-transform:uppercase;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.12;margin:0;letter-spacing:-.01em;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 1.6rem;}
+
+  nav{position:sticky;top:0;z-index:20;background:rgba(255,251,243,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.6rem;}
+  .logo{font-family:var(--display);font-weight:700;font-size:1.15rem;text-decoration:none;}
+  .navlinks{display:flex;gap:1.8rem;list-style:none;padding:0;margin:0;font-size:.92rem;font-weight:500;}
+  .navlinks a{text-decoration:none;color:var(--ink-soft);}
+  .navlinks a:hover{color:var(--coral);}
+  .navlinks .btn{color:#fff;background:var(--ink);padding:.55rem 1.2rem;border-radius:100px;}
+  .navlinks .btn:hover{background:var(--coral);}
+
+  /* hero */
+  .hero{position:relative;padding:4.5rem 0 5rem;overflow:hidden;}
+  .blob{position:absolute;border-radius:50%;filter:blur(0px);z-index:0;opacity:.9;}
+  .blob-1{width:460px;height:460px;top:-140px;right:-120px;background:radial-gradient(circle at 30% 30%, var(--coral), var(--violet) 70%);opacity:.22;border-radius:42% 58% 63% 37% / 41% 44% 56% 59%;}
+  .blob-2{width:260px;height:260px;bottom:-80px;left:-60px;background:radial-gradient(circle at 30% 30%, var(--teal), var(--sky) 70%);opacity:.18;border-radius:63% 37% 37% 63% / 44% 41% 59% 56%;}
+  .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;}
+  .eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.8rem;color:#fff;background:linear-gradient(90deg,var(--coral),var(--violet));padding:.4rem 1rem;border-radius:100px;margin-bottom:1.4rem;font-weight:700;}
+  .hero h1{font-size:clamp(2.5rem,5.2vw,3.8rem);margin-bottom:1.1rem;}
+  .hero h1 .c1{color:var(--coral);} .hero h1 .c2{color:var(--violet);} .hero h1 .c3{color:var(--teal);}
+  .hero .lede{font-size:1.15rem;color:var(--ink-soft);max-width:46ch;margin-bottom:2rem;}
+  .btn-row{display:flex;gap:1rem;flex-wrap:wrap;}
+  .btn-primary{background:linear-gradient(90deg,var(--coral),var(--violet));color:#fff;text-decoration:none;padding:.9rem 1.7rem;border-radius:100px;font-weight:700;font-size:.95rem;display:inline-block;box-shadow:0 10px 24px rgba(255,61,104,.28);}
+  .btn-primary:hover{filter:brightness(1.08);}
+  .btn-ghost{border:2px solid var(--ink);color:var(--ink);text-decoration:none;padding:.85rem 1.6rem;border-radius:100px;font-weight:700;font-size:.95rem;display:inline-block;}
+  .btn-ghost:hover{background:var(--ink);color:#fff;}
+  .hero-photo{position:relative;}
+  .hero-photo .frame{aspect-ratio:4/5;border-radius:26px;overflow:hidden;background:linear-gradient(160deg,var(--bg-alt-2),var(--bg-alt-1));border:3px solid var(--ink);}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;}
+  .hero-photo .tag-float{position:absolute;bottom:-20px;left:-20px;background:var(--ink);color:#fff;padding:.9rem 1.2rem;border-radius:14px;font-size:.85rem;box-shadow:0 12px 30px rgba(0,0,0,.2);border:2px solid var(--amber);}
+  .hero-photo .tag-float b{color:var(--amber);}
+
+  section{padding:5rem 0;}
+  .section-head{max-width:56ch;margin-bottom:2.6rem;}
+  .kicker{font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;display:block;margin-bottom:.7rem;}
+  .section-head p{color:var(--ink-soft);margin-top:.8rem;}
+
+  .about{background:var(--bg-alt-2);}
+  .about .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:3.5rem;align-items:center;}
+  .about-photo{aspect-ratio:1/1;border-radius:24px;overflow:hidden;background:linear-gradient(160deg,var(--coral),var(--violet));border:3px solid var(--ink);}
+  .about-photo img{width:100%;height:100%;object-fit:cover;mix-blend-mode:normal;}
+  .about-facts{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:1.8rem;}
+  .fact{border-top:2px solid var(--ink);padding-top:.7rem;}
+  .fact b{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--violet);margin-bottom:.3rem;font-family:var(--mono);}
+  .socials{display:flex;gap:1rem;margin-top:1.6rem;}
+  .socials a{width:40px;height:40px;border-radius:50%;border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.8rem;font-family:var(--display);font-weight:700;}
+  .socials a:nth-child(1):hover{background:var(--coral);border-color:var(--coral);color:#fff;}
+  .socials a:nth-child(2):hover{background:var(--violet);border-color:var(--violet);color:#fff;}
+  .socials a:nth-child(3):hover{background:var(--teal);border-color:var(--teal);color:#fff;}
+
+  .expertise-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;}
+  .expertise-card{border:2px solid var(--ink);border-radius:20px;padding:1.8rem;background:var(--bg);position:relative;overflow:hidden;}
+  .expertise-card::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;}
+  .expertise-card.c1::before{background:var(--coral);} .expertise-card.c2::before{background:var(--teal);}
+  .expertise-card.c3::before{background:var(--violet);} .expertise-card.c4::before{background:var(--amber);}
+  .expertise-card .num{font-family:var(--mono);font-size:.85rem;margin-bottom:1rem;display:block;font-weight:700;}
+  .expertise-card.c1 .num{color:var(--coral);} .expertise-card.c2 .num{color:var(--teal);}
+  .expertise-card.c3 .num{color:var(--violet);} .expertise-card.c4 .num{color:var(--amber);}
+  .expertise-card h3{font-size:1.15rem;margin-bottom:.6rem;}
+  .expertise-card p{font-size:.92rem;color:var(--ink-soft);margin:0;}
+
+  .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;}
+  .work-card{border-radius:20px;overflow:hidden;text-decoration:none;color:var(--ink);border:2px solid var(--ink);background:var(--bg);}
+  .work-card .thumb{aspect-ratio:4/3;}
+  .work-card:nth-child(1) .thumb{background:linear-gradient(160deg,var(--coral),#ffd9c2);}
+  .work-card:nth-child(2) .thumb{background:linear-gradient(160deg,var(--violet),#d9c8ff);}
+  .work-card:nth-child(3) .thumb{background:linear-gradient(160deg,var(--teal),#c2fff0);}
+  .work-card .thumb img{width:100%;height:100%;object-fit:cover;}
+  .work-card .cap{padding:1.1rem 1.3rem;}
+  .work-card .cap .kicker-sm{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;}
+  .work-card h3{font-size:1.02rem;margin-top:.3rem;}
+
+  .cta-band{background:var(--ink);color:#fff;border-radius:28px;margin:0 1.6rem;padding:3.6rem 3rem;text-align:center;position:relative;overflow:hidden;}
+  .cta-band::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 20%, rgba(255,61,104,.35), transparent 45%), radial-gradient(circle at 85% 80%, rgba(124,92,255,.35), transparent 45%);}
+  .cta-band > *{position:relative;z-index:1;}
+  .cta-band h2{color:#fff;font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:1rem;}
+  .cta-band p{color:#C9C4D8;margin-bottom:1.8rem;}
+
+  .dispatch-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;}
+  .dispatch-card{border:2px solid var(--ink);border-radius:20px;padding:1.8rem;text-decoration:none;color:var(--ink);background:var(--bg-alt-1);}
+  .dispatch-card .tag{font-family:var(--mono);font-size:.75rem;color:var(--coral);font-weight:700;text-transform:uppercase;letter-spacing:.05em;}
+  .dispatch-card h3{margin:.6rem 0 .6rem;font-size:1.2rem;}
+  .dispatch-card p{color:var(--ink-soft);font-size:.94rem;margin:0;}
+
+  footer{border-top:2px solid var(--ink);padding:2.6rem 0 3rem;margin-top:1rem;}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.5rem;align-items:center;}
+  footer .fname{font-family:var(--display);font-weight:700;}
+  footer .floc{color:var(--ink-soft);font-size:.88rem;margin-top:.2rem;}
+  .footlinks{display:flex;gap:1.4rem;list-style:none;padding:0;margin:0;font-size:.9rem;font-weight:500;}
+  .footlinks a{text-decoration:none;color:var(--ink-soft);}
+  .footlinks a:hover{color:var(--coral);}
+
+  @media (max-width:900px){
+    .hero .wrap,.about .wrap{grid-template-columns:1fr;}
+    .expertise-grid{grid-template-columns:1fr 1fr;}
+    .work-grid,.dispatch-grid{grid-template-columns:1fr;}
+    .navlinks{display:none;}
+  }
+</style>
+</head>
+<body>
+<div class="concept-tag">Concept E — Vibrant Modern Portfolio</div>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#">Wahidul Alam Nahid</a>
+    <ul class="navlinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#dispatches">Dispatches</a></li>
+      <li><a class="btn" href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">● QA Engineer · Dhaka, Bangladesh</span>
+      <h1>I <span class="c1">break</span> things on purpose, so your <span class="c2">users</span> don't have to.</h1>
+      <p class="lede">QA Engineer on the Platform &amp; Partners team at Ding, an international payments platform — backend and API testing, root-cause analysis, CI/CD automation. Off the clock: writing, painting, film, and old coins.</p>
+      <div class="btn-row">
+        <a class="btn-primary" href="#contact">Get In Touch</a>
+        <a class="btn-ghost" href="#">Download Résumé</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="frame"><img src="../images/hero.jpg" alt="Wahidul Alam Nahid" onerror="this.style.display='none'"></div>
+      <div class="tag-float"><b>3+ yrs</b> in QA &amp; systems testing</div>
+    </div>
+  </div>
+</header>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-photo"><img src="../images/portrait.jpg" alt="Portrait" onerror="this.style.display='none'"></div>
+    <div>
+      <span class="kicker" style="color:var(--violet);">About</span>
+      <h2>A QA engineer by trade, a polymath by instinct.</h2>
+      <p style="color:var(--ink-soft);margin-top:1rem;">I test payment systems for a living, tracing failures back through logs and pipelines until the cause is undeniable. The same instinct doesn't clock out at 6pm — it just changes subjects, toward words, paint, film, and old coins. B.Sc. in Electrical &amp; Electronic Engineering, AUST.</p>
+      <div class="about-facts">
+        <div class="fact"><b>Role</b>QA Engineer, Platform &amp; Partners — Ding</div>
+        <div class="fact"><b>Education</b>B.Sc. EEE, AUST</div>
+        <div class="fact"><b>Based in</b>Dhaka, Bangladesh</div>
+        <div class="fact"><b>Also</b>Writer, painter, filmmaker, collector</div>
+      </div>
+      <div class="socials">
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="GitHub">gh</a>
+        <a href="mailto:#" aria-label="Email">@</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="expertise">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker" style="color:var(--coral);">Expertise</span>
+      <h2>Where the work happens</h2>
+      <p>Four lenses, one underlying habit — look closely, notice what's off, follow it until it means something.</p>
+    </div>
+    <div class="expertise-grid">
+      <div class="expertise-card c1">
+        <span class="num">01</span>
+        <h3>QA &amp; Systems Analysis</h3>
+        <p>Backend and API testing, CI/CD pipelines, root-cause analysis across services.</p>
+      </div>
+      <div class="expertise-card c2">
+        <span class="num">02</span>
+        <h3>Writing &amp; Documentation</h3>
+        <p>Defect reports and architecture notes turned into documents people actually read.</p>
+      </div>
+      <div class="expertise-card c3">
+        <span class="num">03</span>
+        <h3>Creative Storytelling</h3>
+        <p>Film and paint, worked the same way I work a test case — watch, notice, follow.</p>
+      </div>
+      <div class="expertise-card c4">
+        <span class="num">04</span>
+        <h3>Research &amp; Psychology</h3>
+        <p><em>23 er Diary</em> — identity and memory, and the psychology of users and teams.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="work">
+  <div class="wrap" style="display:block;">
+    <div class="section-head">
+      <span class="kicker" style="color:var(--teal);">Selected Work</span>
+      <h2>A few things worth a second look</h2>
+      <p>Systems, paintings, and film stills — different mediums, same instinct.</p>
+    </div>
+    <div class="work-grid">
+      <a class="work-card" href="#">
+        <div class="thumb"><img src="../images/work-qa.jpg" alt="QA work" onerror="this.style.display='none'"></div>
+        <div class="cap"><span class="kicker-sm">QA</span><h3>Backend &amp; API Testing</h3></div>
+      </a>
+      <a class="work-card" href="#">
+        <div class="thumb"><img src="../images/work-art.jpg" alt="Painting" onerror="this.style.display='none'"></div>
+        <div class="cap"><span class="kicker-sm">Artist</span><h3>Abstract painting, mood over precision</h3></div>
+      </a>
+      <a class="work-card" href="#">
+        <div class="thumb"><img src="../images/work-film.jpg" alt="Film still" onerror="this.style.display='none'"></div>
+        <div class="cap"><span class="kicker-sm">Filmmaker</span><h3>Short film, built on rhythm and silence</h3></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-band" id="contact">
+      <h2>Hiring, collaborating, or just curious?</h2>
+      <p>Open to conversations about QA, product, or anything from the other sections.</p>
+      <a class="btn-primary" href="mailto:#">Say hello →</a>
+    </div>
+  </div>
+</section>
+
+<section id="dispatches">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker" style="color:var(--amber);">Recent Dispatches</span>
+      <h2>Latest writing</h2>
+    </div>
+    <div class="dispatch-grid">
+      <a class="dispatch-card" href="#">
+        <span class="tag">QA</span>
+        <h3>The Celdon Shooper Principle: Why Edge Cases Aren't Optional</h3>
+        <p>Some testers chase bugs. This one hunts realities most teams don't even imagine.</p>
+      </a>
+      <a class="dispatch-card" href="#">
+        <span class="tag">QA</span>
+        <h3>Of Bugs, Buttons, and Broken Dreams: A QA Tale</h3>
+        <p>Once upon a test cycle, a regional setting made the main action button vanish.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="fname">Wahidul Alam Nahid</div>
+      <div class="floc">Dhaka, Bangladesh</div>
+    </div>
+    <ul class="footlinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#dispatches">Dispatches</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

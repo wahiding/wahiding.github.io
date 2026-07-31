@@ -1,0 +1,152 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const expertise = [
+  {
+    n: '01', c: 'c1', title: 'QA & Systems Analysis',
+    body: 'Backend and API testing, CI/CD pipelines, root-cause analysis across services.',
+  },
+  {
+    n: '02', c: 'c2', title: 'Writing & Documentation',
+    body: 'Defect reports and architecture notes turned into documents people actually read.',
+  },
+  {
+    n: '03', c: 'c3', title: 'Creative Storytelling',
+    body: 'Film and paint, worked the same way I work a test case — watch, notice, follow.',
+  },
+  {
+    n: '04', c: 'c4', title: 'Research & Psychology',
+    body: '23 er Diary — identity and memory, and the psychology of users and teams.',
+  },
+];
+
+const work = [
+  { href: '/qa-engineer', img: '/images/work-qa.jpg', kicker: 'QA', title: 'Backend & API Testing' },
+  { href: '/artist', img: '/images/work-art.jpg', kicker: 'Artist', title: 'Abstract painting, mood over precision' },
+  { href: '/filmmaker', img: '/images/work-film.jpg', kicker: 'Filmmaker', title: 'Short film, built on rhythm and silence' },
+];
+
+const dispatches = [
+  {
+    href: '/blog/celdon-shooper-principle', tag: 'QA',
+    title: "The Celdon Shooper Principle: Why Edge Cases Aren't Optional",
+    excerpt: "Some testers chase bugs. This one hunts realities most teams don't even imagine.",
+  },
+  {
+    href: '/blog/bugs-buttons-broken-dreams', tag: 'QA',
+    title: 'Of Bugs, Buttons, and Broken Dreams: A QA Tale',
+    excerpt: 'Once upon a test cycle, a regional setting made the main action button vanish.',
+  },
+];
+---
+<Layout title="Wahidul Alam Nahid — QA Engineer, Writer, Artist" active="">
+
+  <header class="hero">
+    <div class="disc disc-1"></div>
+    <div class="disc disc-2"></div>
+    <div class="disc disc-3"></div>
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">● QA Engineer · Dhaka, Bangladesh</span>
+        <h1>I <span class="c1">break</span> things on purpose, so your <span class="c2">users</span> don't have to.</h1>
+        <p class="lede">QA Engineer on the Platform &amp; Partners team at Ding, an international payments platform — backend and API testing, root-cause analysis, CI/CD automation. Off the clock: writing, painting, film, and old coins.</p>
+        <div class="btn-row">
+          <a class="btn-primary" href="#contact">Get In Touch</a>
+          <a class="btn-ghost" href="/resume.pdf">Download Résumé</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <div class="frame"><img src="/images/hero.jpg" alt="Wahidul Alam Nahid" onerror="this.style.display='none'" /></div>
+        <div class="tag-float"><b>3+ yrs</b> in QA &amp; systems testing</div>
+      </div>
+    </div>
+  </header>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="about-photo"><img src="/images/portrait.jpg" alt="Portrait" onerror="this.style.display='none'" /></div>
+      <div>
+        <span class="kicker" style="color:var(--maroon);">About</span>
+        <h2>A QA engineer by trade, a polymath by instinct.</h2>
+        <p style="color:var(--ink-soft);margin-top:1rem;">I test payment systems for a living, tracing failures back through logs and pipelines until the cause is undeniable. The same instinct doesn't clock out at 6pm — it just changes subjects, toward words, paint, film, and old coins. B.Sc. in Electrical &amp; Electronic Engineering, AUST.</p>
+        <div class="about-facts">
+          <div class="fact"><b>Role</b>QA Engineer, Platform &amp; Partners — Ding</div>
+          <div class="fact"><b>Education</b>B.Sc. EEE, AUST</div>
+          <div class="fact"><b>Based in</b>Dhaka, Bangladesh</div>
+          <div class="fact"><b>Also</b>Writer, painter, filmmaker, collector</div>
+        </div>
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/wahidulnahid/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          <a href="https://github.com/wahidulalamnahid" target="_blank" rel="noopener" aria-label="GitHub">gh</a>
+          <a href="mailto:wahidulalam.nahid@gmail.com" aria-label="Email">@</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="expertise">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker" style="color:var(--rust);">Expertise</span>
+        <h2>Where the work happens</h2>
+        <p>Four lenses, one underlying habit — look closely, notice what's off, follow it until it means something.</p>
+      </div>
+      <div class="expertise-grid">
+        {expertise.map((e) => (
+          <div class={`expertise-card ${e.c}`}>
+            <span class="num">{e.n}</span>
+            <h3>{e.title}</h3>
+            <p>{e.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="work">
+    <div class="wrap" style="display:block;">
+      <div class="section-head">
+        <span class="kicker" style="color:var(--avocado);">Selected Work</span>
+        <h2>A few things worth a second look</h2>
+        <p>Systems, paintings, and film stills — different mediums, same instinct.</p>
+      </div>
+      <div class="work-grid">
+        {work.map((w) => (
+          <a class="work-card" href={w.href}>
+            <div class="thumb"><img src={w.img} alt={w.title} onerror="this.style.display='none'" /></div>
+            <div class="cap"><span class="kicker-sm">{w.kicker}</span><h3>{w.title}</h3></div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cta-band" id="contact">
+        <h2>Hiring, collaborating, or just curious?</h2>
+        <p>Open to conversations about QA, product, or anything from the other sections.</p>
+        <a class="btn-primary" href="mailto:wahidulalam.nahid@gmail.com">Say hello →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="dispatches">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker" style="color:var(--mustard);">Recent Dispatches</span>
+        <h2>Latest writing</h2>
+      </div>
+      <div class="dispatch-grid">
+        {dispatches.map((d) => (
+          <a class="dispatch-card" href={d.href}>
+            <span class="tag">{d.tag}</span>
+            <h3>{d.title}</h3>
+            <p>{d.excerpt}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</Layout>

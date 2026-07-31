@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const focus = [
+  { title: 'Identity & Memory', body: 'Long-running personal interest via reflective journaling.' },
+  { title: 'User Psychology', body: 'Applying the same curiosity to why users behave the way they do.' },
+  { title: 'Team Dynamics', body: 'Reading motivation and friction in collaborative work, not just individual behavior.' },
+];
+---
+<Layout title="Psychology — Wahidul Alam Nahid">
+
+  <div class="draft-banner">⚠ Draft copy — written to match tone/structure, needs Wahid's real voice before publishing</div>
+
+  <header class="persona-hero" style="--accent: var(--teal);">
+    <div class="disc-solo"></div>
+    <div class="wrap">
+      <span class="kicker" style="color:var(--teal);">Section 05 — Psychology Enthusiast</span>
+      <h1>Every system has people behind it, eventually.</h1>
+      <p class="lede">An interest in identity, memory, and self-awareness that started in a personal journal and now shows up in how I think about users, teams, and audiences.</p>
+    </div>
+  </header>
+
+  <section class="persona-body" style="--accent: var(--teal);">
+    <div class="wrap">
+      <div class="persona-copy">
+        <p>I'm not a trained psychologist — this is a reader's interest, not a professional one. But years of journaling about identity and memory built a habit of asking why, not just what: why a person reacts the way they do, not just that they did.</p>
+        <p>That habit turns out to be directly useful at work. A confusing user flow is rarely a technical mystery; it's usually a mismatch between what the system assumes and how a person actually thinks. The same curiosity that makes journaling interesting makes user research interesting.</p>
+      </div>
+      <div class="focus-grid">
+        <span class="kicker" style="color:var(--teal);">Focus Areas</span>
+        {focus.map((f) => (
+          <div class="focus-card" style="--accent: var(--teal);">
+            <h3>{f.title}</h3>
+            <p>{f.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="back-link wrap"><a class="btn-ghost" href="/">← Back home</a></div>
+
+</Layout>

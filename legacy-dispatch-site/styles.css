@@ -1,0 +1,417 @@
+/* ============================================================
+   THE POLYMATH DISPATCH — shared stylesheet
+   Design system: aged paper + editorial redline marks
+   ============================================================ */
+
+:root {
+  --paper: #EDE6D6;
+  --paper-deep: #E4DBC7;
+  --ink: #1F2421;
+  --ink-soft: #4A4842;
+  --redline: #B23A2E;
+  --ochre: #C98A2B;
+  --teal: #2B4A47;
+  --rule: rgba(31, 36, 33, 0.18);
+
+  --display: "Fraunces", "Georgia", serif;
+  --body: "Newsreader", "Iowan Old Style", serif;
+  --mono: "JetBrains Mono", "SF Mono", monospace;
+
+  --measure: 68ch;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 18px;
+  line-height: 1.6;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 3px);
+}
+
+a { color: inherit; }
+
+img { max-width: 100%; display: block; }
+
+/* ---------- Masthead ---------- */
+
+.masthead {
+  border-bottom: 3px solid var(--ink);
+  padding: 0.9rem 1.5rem 0.7rem;
+}
+
+.masthead-row {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.masthead-nameplate {
+  max-width: 1180px;
+  margin: 0.4rem auto 0.6rem;
+  text-align: center;
+}
+
+.masthead-nameplate a {
+  text-decoration: none;
+}
+
+.masthead-nameplate h1 {
+  font-family: var(--display);
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.masthead-tagline {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--redline);
+  margin-top: 0.35rem;
+}
+
+/* ---------- Section nav (contents / rubric strip) ---------- */
+
+.section-nav {
+  border-bottom: 1px solid var(--ink);
+  background: var(--paper-deep);
+}
+
+.section-nav ol {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0.55rem 1.5rem;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.6rem;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+}
+
+.section-nav li a {
+  text-decoration: none;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  border-bottom: 1px solid transparent;
+}
+
+.section-nav li a:hover,
+.section-nav li a.active {
+  color: var(--redline);
+  border-bottom-color: var(--redline);
+}
+
+.section-nav .num {
+  color: var(--ochre);
+  margin-right: 0.15rem;
+}
+
+/* ---------- Layout helpers ---------- */
+
+main { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem; }
+
+.rule {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 3rem 0;
+}
+
+.rule-heavy {
+  border: none;
+  border-top: 3px solid var(--ink);
+  margin: 2.5rem 0;
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ochre);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+h1, h2, h3 {
+  font-family: var(--display);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+
+h2 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); }
+h3 { font-size: clamp(1.25rem, 2vw, 1.55rem); }
+
+p { max-width: var(--measure); }
+
+/* ---------- Hero / headline feature ---------- */
+
+.hero {
+  padding: 3.2rem 0 2rem;
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.hero h2 {
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  margin: 0 0 1.1rem;
+}
+
+.hero .lede {
+  font-size: 1.18rem;
+  color: var(--ink-soft);
+  max-width: 46ch;
+}
+
+.hero .byline {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin-top: 1.4rem;
+}
+
+/* margin annotation card */
+.margin-note {
+  position: relative;
+  border-left: 2px solid var(--redline);
+  padding: 0.9rem 0 0.9rem 1.2rem;
+  font-family: var(--mono);
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+}
+
+.margin-note strong {
+  display: block;
+  color: var(--redline);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+/* ---------- Editorial mark (signature element) ---------- */
+
+.mark {
+  display: inline-block;
+  position: relative;
+}
+
+.mark.strike {
+  text-decoration: line-through;
+  text-decoration-color: var(--redline);
+  text-decoration-thickness: 2px;
+}
+
+.mark.insert::after {
+  content: attr(data-insert);
+  color: var(--redline);
+  font-family: var(--mono);
+  font-size: 0.7em;
+  vertical-align: super;
+  margin-left: 0.15em;
+}
+
+.mark.circle {
+  border: 2px solid var(--redline);
+  border-radius: 50%;
+  padding: 0 0.35em;
+}
+
+/* divider made of a caret / insertion mark */
+.divider-mark {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 3rem 0;
+  color: var(--redline);
+  font-family: var(--mono);
+}
+
+.divider-mark::before,
+.divider-mark::after {
+  content: "";
+  flex: 1;
+  border-top: 1px dashed var(--rule);
+}
+
+/* ---------- Two-column feature with drop cap ---------- */
+
+.feature {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  padding: 2.5rem 0;
+}
+
+.feature .col-rule {
+  border-left: 1px solid var(--rule);
+  padding-left: 3rem;
+}
+
+.dropcap::first-letter {
+  font-family: var(--display);
+  font-size: 3.6rem;
+  font-weight: 600;
+  float: left;
+  line-height: 0.8;
+  margin: 0.05em 0.08em 0 0;
+  color: var(--redline);
+}
+
+.expertise-item {
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.expertise-item:first-child { border-top: none; }
+
+.expertise-item h3 { margin: 0 0 0.4rem; }
+.expertise-item p { margin: 0; font-size: 0.98rem; color: var(--ink-soft); }
+
+/* ---------- Sections grid (persona hub) ---------- */
+
+.sections-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--ink);
+}
+
+.section-card {
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 1.8rem;
+  text-decoration: none;
+  color: var(--ink);
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background 0.15s ease;
+}
+
+.section-card:hover { background: var(--paper-deep); }
+
+.section-card .num {
+  font-family: var(--mono);
+  color: var(--ochre);
+  font-size: 0.85rem;
+}
+
+.section-card h3 { margin: 0.6rem 0 0.4rem; }
+.section-card p { margin: 0; font-size: 0.92rem; color: var(--ink-soft); }
+
+/* ---------- Dispatch (blog) list ---------- */
+
+.dispatch {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 1.5rem;
+  padding: 1.8rem 0;
+  border-top: 1px solid var(--rule);
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.dispatch:first-of-type { border-top: none; }
+
+.dispatch .tag {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.dispatch h3 { margin: 0.3rem 0 0.5rem; }
+.dispatch p { margin: 0; color: var(--ink-soft); font-size: 0.98rem; }
+
+/* ---------- Buttons / links ---------- */
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 2px;
+}
+
+.cta:hover { color: var(--redline); border-color: var(--redline); }
+
+/* ---------- Colophon / footer ---------- */
+
+.colophon {
+  border-top: 3px solid var(--ink);
+  margin-top: 4rem;
+  padding: 2.2rem 1.5rem 2.6rem;
+  background: var(--paper-deep);
+}
+
+.colophon-row {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.colophon-row a { text-decoration: none; }
+.colophon-row a:hover { color: var(--redline); }
+
+.colophon-links { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+
+/* ---------- Focus states ---------- */
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--redline);
+  outline-offset: 2px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 860px) {
+  .hero, .feature { grid-template-columns: 1fr; gap: 1.8rem; }
+  .feature .col-rule { border-left: none; padding-left: 0; border-top: 1px solid var(--rule); padding-top: 1.8rem; }
+  .sections-grid { grid-template-columns: repeat(2, 1fr); }
+  .dispatch { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 520px) {
+  .sections-grid { grid-template-columns: 1fr; }
+  body { font-size: 16.5px; }
+}
