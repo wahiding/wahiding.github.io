@@ -19,6 +19,15 @@ const navItems = [
   { href: '/#work', label: 'Work', key: 'work' },
   { href: '/#dispatches', label: 'Dispatches', key: 'dispatches' },
 ];
+
+const personaItems = [
+  { href: '/qa-engineer', label: 'QA Engineer', key: 'qa-engineer' },
+  { href: '/writer', label: 'Writer', key: 'writer' },
+  { href: '/artist', label: 'Artist', key: 'artist' },
+  { href: '/filmmaker', label: 'Filmmaker', key: 'filmmaker' },
+  { href: '/psychology', label: 'Psychology', key: 'psychology' },
+  { href: '/collector', label: 'Collector', key: 'collector' },
+];
 ---
 
 <!DOCTYPE html>
@@ -39,7 +48,18 @@ const navItems = [
         <span></span><span></span><span></span>
       </button>
       <ul class="navlinks" id="navlinks">
-        {navItems.map((item) => (
+        <li><a href={navItems[0].href} class={active === navItems[0].key ? 'active' : ''}>{navItems[0].label}</a></li>
+        <li class="has-dropdown">
+          <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            Personas <span class="caret" aria-hidden="true">▾</span>
+          </button>
+          <ul class="dropdown-menu">
+            {personaItems.map((item) => (
+              <li><a href={item.href} class={active === item.key ? 'active' : ''}>{item.label}</a></li>
+            ))}
+          </ul>
+        </li>
+        {navItems.slice(1).map((item) => (
           <li><a href={item.href} class={active === item.key ? 'active' : ''}>{item.label}</a></li>
         ))}
         <li><a class="btn" href="/#contact">Contact</a></li>
@@ -62,10 +82,27 @@ const navItems = [
         toggle?.setAttribute('aria-expanded', 'false');
       });
     });
+
+    document.querySelectorAll('.has-dropdown').forEach((item) => {
+      const dropToggle = item.querySelector('.dropdown-toggle');
+      dropToggle?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = item.classList.toggle('open');
+        dropToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    });
+    document.addEventListener('click', (e) => {
+      document.querySelectorAll('.has-dropdown.open').forEach((item) => {
+        if (!item.contains(e.target)) {
+          item.classList.remove('open');
+          item.querySelector('.dropdown-toggle')?.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
   </script>
 
   <footer class="site-footer">
-    <div class="wrap">
+    <div class="wrap footer-grid">
       <div>
         <div class="fname">Wahidul Alam Nahid</div>
         <div class="floc">Dhaka, Bangladesh</div>
@@ -75,6 +112,11 @@ const navItems = [
           <li><a href={item.href}>{item.label}</a></li>
         ))}
         <li><a href="/#contact">Contact</a></li>
+      </ul>
+      <ul class="footlinks">
+        {personaItems.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
       </ul>
     </div>
   </footer>

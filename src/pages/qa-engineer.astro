@@ -2,9 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 
 const focus = [
-  { title: 'Backend & API Testing', body: 'Schema validation, business rules, integration edge cases.' },
-  { title: 'Root-Cause Analysis', body: 'Correlation-ID tracing across services before a bug gets raised.' },
-  { title: 'QA Tooling', body: 'Automation-assisted failure triage, acceptance-criteria review workflows.' },
+  { title: 'Backend & API Testing', body: 'Postman-driven API test design for DingConnect and EDTSAPI — the two platforms behind 80% of the business.' },
+  { title: 'Root-Cause Analysis', body: 'Tracing failures through Jenkins runs and Kibana logs before a defect ever gets raised.' },
+  { title: 'Cross-Platform QA', body: 'Functional, regression, and UAT testing across Android/iOS (BrowserStack, Android Studio) for DingMoney and Qaed KYSee.' },
+];
+
+const career = [
+  { role: 'Jr. QA Engineer — Platform & Partners (Backend)', company: 'Ding', dates: 'Jun 2026 – Present', body: 'Backend and API testing for DingConnect and EDTSAPI; designs test scenarios, reports defects, verifies fixes.' },
+  { role: 'Jr. QA Engineer — Web & Mobile', company: 'Ding', dates: 'Jul 2025 – Jun 2026', body: 'Functional, regression, smoke, sanity, and UAT testing; validated Android/iOS journeys; ran the largest release regressions for DingMoney and Qaed KYSee.' },
+  { role: 'Functional Tester Trainee (Intern)', company: 'A1QA Software Testing Company', dates: 'Jun 2024 – Oct 2024', body: 'First professional QA work — functional testing fundamentals.' },
 ];
 ---
 <Layout title="QA Engineer — Wahidul Alam Nahid" active="work">
@@ -23,7 +29,7 @@ const focus = [
       <div class="persona-copy">
         <p>A defect rarely announces itself. It hides in a currency format, a feature flag left half-toggled, a race condition that only shows up under load. My work is the process of narrowing that down — schema, required fields, business rules, edge cases — until the root cause is undeniable, not just plausible.</p>
         <p>The most useful bug report isn't the one that says "it's broken." It's the one with the correlation ID, the environment, the exact steps, and a clear line between symptom and cause. Writing has always been part of testing, for me — the report is what makes the fix possible.</p>
-        <p>Lately that's meant building tools rather than just running them: automation that classifies failed test runs by likely root cause, workflows that pull ticket context and cross-check it against a pull request before a human ever has to open both tabs.</p>
+        <p>Right now that means DingConnect and EDTSAPI — the two platforms that carry roughly 80% of Ding's business. Before backend, it was web and mobile: functional, regression, smoke, and UAT testing across Android and iOS, including the largest release regressions for DingMoney and Qaed KYSee.</p>
       </div>
       <div class="focus-grid">
         <span class="kicker" style="color:var(--rust);">Focus Areas</span>
@@ -31,6 +37,22 @@ const focus = [
           <div class="focus-card" style="--accent: var(--rust);">
             <h3>{f.title}</h3>
             <p>{f.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <span class="kicker" style="color:var(--rust);">Career</span>
+      <div class="timeline">
+        {career.map((c) => (
+          <div class="timeline-item" style="--accent: var(--rust);">
+            <div class="timeline-dates">{c.dates}</div>
+            <h3>{c.role}</h3>
+            <div class="timeline-company">{c.company}</div>
+            <p>{c.body}</p>
           </div>
         ))}
       </div>
