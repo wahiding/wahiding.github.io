@@ -1,29 +1,38 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const expertise = [
+const craft = [
   {
-    n: '01', c: 'c1', title: 'QA & Systems Analysis',
-    body: 'Backend and API testing (Postman) for DingConnect and EDTSAPI, CI/CD monitoring in Jenkins, root-cause analysis.',
+    n: '01', c: 'c1', href: '/qa-engineer', title: 'Software Quality Engineering',
+    body: "I build confidence in software by uncovering what others overlook. From backend APIs and fintech systems to CI/CD pipelines and production logs, I enjoy following small inconsistencies until they reveal the larger story. To me, quality isn't just testing—it's understanding complex systems.",
   },
   {
-    n: '02', c: 'c2', title: 'Writing & Documentation',
-    body: 'Defect reports and architecture notes turned into documents people actually read.',
+    n: '02', c: 'c2', href: '/writer', title: 'Writing & Literature',
+    body: "Writing is where observation becomes memory. I write novels, essays, poetry, journals, and reflections that explore identity, grief, memory, relationships, and the quiet questions people carry throughout their lives. My stories rarely begin with a plot—they begin with a feeling that refuses to leave.",
+    note: 'Current work: অভ্যন্তর, a psychological novel about trauma, memory, and the fragile architecture of identity.',
   },
   {
-    n: '03', c: 'c3', title: 'Creative Storytelling',
-    body: 'Film and paint, worked the same way I work a test case — watch, notice, follow.',
+    n: '03', c: 'c3', href: '/artist', title: 'Art & Visual Expression',
+    body: "Some emotions arrive before language does. Watercolor, ink, photography, and illustration help me explore those moments that words cannot completely describe. I'm drawn to atmosphere, silence, imperfect textures, and ordinary scenes that reveal extraordinary feelings when observed patiently.",
   },
   {
-    n: '04', c: 'c4', title: 'Research & Psychology',
-    body: '23 er Diary — identity and memory, and the psychology of users and teams.',
+    n: '04', c: 'c4', href: '/filmmaker', title: 'Cinema & Storytelling',
+    body: "Film combines everything I love—writing, visuals, sound, rhythm, and human emotion. I enjoy creating stories that linger after the screen goes dark, where quiet moments often speak louder than dialogue. Every frame is another way of asking people to pause and notice.",
+  },
+  {
+    n: '05', c: 'c5', href: '/psychology', title: 'Psychology & Human Nature',
+    body: "I'm fascinated by the invisible systems behind people—the way memory shapes identity, how trauma alters perception, why habits form, and how emotions quietly influence our decisions. Psychology isn't just something I read; it influences how I write, design, test software, and understand the people around me.",
+  },
+  {
+    n: '06', c: 'c6', href: '/collector', title: 'Collecting, Research & Lifelong Learning',
+    body: "I collect coins because every object carries a history beyond its material worth. That same curiosity extends into AI, philosophy, software architecture, design, history, and anything that helps me see the world from another perspective. Learning isn't a destination—it's the thread connecting everything I create.",
   },
 ];
 
 const work = [
-  { href: '/qa-engineer', img: '/images/work-qa.jpg', kicker: 'QA', title: 'Backend & API Testing' },
+  { href: '/qa-engineer', img: '/images/work-qa.png', kicker: 'QA', title: 'Backend, Frontend & API Testing' },
   { href: '/artist', img: '/images/work-art.jpg', kicker: 'Artist', title: 'Abstract painting, mood over precision' },
-  { href: '/filmmaker', img: '/images/work-film.jpg', kicker: 'Filmmaker', title: 'Short film, built on rhythm and silence' },
+  { href: '/writer', img: '/images/work-writer.jpg', kicker: 'Writer', title: 'Writing, to understand rather than impress' },
 ];
 
 const dispatches = [
@@ -49,7 +58,7 @@ const dispatches = [
       <div>
         <span class="eyebrow">● QA Engineer · Dhaka, Bangladesh</span>
         <h1>I <span class="c1">break</span> things on purpose, so your <span class="c2">users</span> don't have to.</h1>
-        <p class="lede">QA Engineer on the Platform &amp; Partners team at Ding, an international payments platform — backend and API testing, root-cause analysis, CI/CD automation. Off the clock: writing, painting, film, and old coins.</p>
+        <p class="lede">QA Engineer on the Platform &amp; Partners team at Ding, an international fintech company behind DingMoney, Top-Up, and Vouchers. Backend, frontend, and API testing, root-cause analysis, and CI/CD automation by day. Off the clock: writing, painting, film, and collecting coins &amp; postage stamps with better stories than most people's vacations.</p>
         <div class="btn-row">
           <a class="btn-primary" href="#contact">Get In Touch</a>
           <a class="btn-ghost" href="/resume.pdf">Download Résumé</a>
@@ -57,7 +66,7 @@ const dispatches = [
       </div>
       <div class="hero-photo">
         <div class="frame"><img src="/images/hero.jpg" alt="Wahidul Alam Nahid" onerror="this.style.display='none'" /></div>
-        <div class="tag-float"><b>Jr. QA Engineer</b> at Ding — fintech payments</div>
+        <div class="tag-float"><b>Jr. QA Engineer</b> at Ding — Fintech Platform</div>
       </div>
     </div>
   </header>
@@ -66,19 +75,29 @@ const dispatches = [
     <div class="wrap">
       <div class="about-photo"><img src="/images/portrait.jpg" alt="Portrait" onerror="this.style.display='none'" /></div>
       <div>
-        <span class="kicker" style="color:var(--maroon);">About</span>
-        <h2>A QA engineer by trade, a polymath by instinct.</h2>
-        <p style="color:var(--ink-soft);margin-top:1rem;">I test payment systems for a living, tracing failures back through logs and pipelines until the cause is undeniable. The same instinct doesn't clock out at 6pm — it just changes subjects, toward words, paint, film, and old coins. B.Sc. in Electrical &amp; Electronic Engineering, AUST.</p>
+        <span class="kicker" style="color:var(--maroon);">The Polymath</span>
+        <h2>A QA engineer by profession. A polymath by instinct.</h2>
+        <p style="color:var(--ink-soft);margin-top:1rem;">I build confidence in software by uncovering what others overlook. The same curiosity follows me beyond engineering—into writing, painting, filmmaking, psychology, and collecting pieces of history.</p>
+        <p style="color:var(--ink-soft);">I don't see these as separate identities. They're different ways of exploring the same question: How do people, systems, and stories truly work?</p>
+        <p style="color:var(--ink-soft);">This website is a map of that exploration—a place where code meets creativity, logic meets emotion, and every project reflects another way of seeing the world.</p>
         <div class="about-facts">
           <div class="fact"><b>Role</b>Jr. QA Engineer, Platform &amp; Partners — Ding</div>
-          <div class="fact"><b>Education</b>B.Sc. EEE, AUST</div>
           <div class="fact"><b>Based in</b>Dhaka, Bangladesh</div>
-          <div class="fact"><b>Also</b>Writer, painter, filmmaker, collector</div>
+          <div class="fact"><b>Beyond Work</b>Writer • Artist • Collector • Lifelong Learner</div>
         </div>
-        <div class="socials">
-          <a href="https://www.linkedin.com/in/wahidulnahid/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
-          <a href="https://github.com/wahidulalamnahid" target="_blank" rel="noopener" aria-label="GitHub">gh</a>
-          <a href="mailto:wahidulalam.nahid@gmail.com" aria-label="Email">@</a>
+        <div class="socials" id="polymath-socials">
+          <a class="social-linkedin" href="https://www.linkedin.com/in/wahidulnahid/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          <a class="social-github" href="https://github.com/wahidulalamnahid" target="_blank" rel="noopener" aria-label="GitHub">gh</a>
+          <a class="social-email" href="mailto:wahidulalam.nahid@gmail.com" aria-label="Email">@</a>
+          <div class="social-more">
+            <button class="social-more-toggle" aria-label="Show more social links" aria-expanded="false">→</button>
+            <div class="social-more-menu">
+              <a class="social-fb" href="https://www.facebook.com/wahid222/" target="_blank" rel="noopener" aria-label="Facebook">fb</a>
+              <a class="social-ig" href="https://www.instagram.com/being_polymath/" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+              <a class="social-pin" href="https://www.pinterest.com/wahidnahid/" target="_blank" rel="noopener" aria-label="Pinterest">pin</a>
+              <a class="social-yt" href="https://www.youtube.com/@PolySpectrumFilms" target="_blank" rel="noopener" aria-label="YouTube">yt</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -87,28 +106,130 @@ const dispatches = [
   <section id="expertise">
     <div class="wrap">
       <div class="section-head">
-        <span class="kicker" style="color:var(--rust);">Expertise</span>
-        <h2>Where the work happens</h2>
-        <p>Four lenses, one underlying habit — look closely, notice what's off, follow it until it means something.</p>
+        <span class="kicker" style="color:var(--rust);">The Craft</span>
+        <h2>Six ways I explore the world.</h2>
+        <p>I don't think of these as separate careers or hobbies. They're different expressions of the same instinct—to observe deeply, understand honestly, and create something meaningful from what I find.</p>
+        <p>Whether I'm tracing a bug through logs, writing a psychological novel, painting a quiet street, or studying human behavior, I'm ultimately asking the same question:</p>
+        <p class="craft-question">What lies beneath the surface?</p>
       </div>
-      <div class="expertise-grid">
-        {expertise.map((e) => (
-          <div class={`expertise-card ${e.c}`}>
-            <span class="num">{e.n}</span>
-            <h3>{e.title}</h3>
-            <p>{e.body}</p>
-          </div>
-        ))}
+
+      <div class="carousel">
+        <button class="carousel-arrow carousel-arrow-left" aria-label="Scroll left" hidden>‹</button>
+        <div class="carousel-track" id="craft-track">
+          {craft.map((c) => (
+            <a class={`craft-card ${c.c}`} href={c.href}>
+              <span class="num">{c.n}</span>
+              <h3>{c.title}</h3>
+              <p>{c.body}</p>
+              {c.note && <p class="craft-note">{c.note}</p>}
+              <span class="craft-explore">Explore →</span>
+            </a>
+          ))}
+        </div>
+        <button class="carousel-arrow carousel-arrow-right" aria-label="Scroll right">›</button>
       </div>
     </div>
   </section>
 
+  <script>
+    const track = document.getElementById('craft-track');
+    const carousel = track?.closest('.carousel');
+    const leftBtn = carousel?.querySelector('.carousel-arrow-left');
+    const rightBtn = carousel?.querySelector('.carousel-arrow-right');
+
+    if (track && leftBtn && rightBtn) {
+      const STORAGE_KEY = 'craftCarouselScroll';
+
+      const updateArrows = () => {
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        leftBtn.hidden = track.scrollLeft <= 4;
+        rightBtn.hidden = maxScroll <= 4 || track.scrollLeft >= maxScroll - 4;
+      };
+
+      const scrollByCard = (dir) => {
+        const card = track.querySelector('.craft-card');
+        const gap = 22;
+        const amount = card ? card.getBoundingClientRect().width + gap : 300;
+        track.scrollBy({ left: dir * amount, behavior: 'smooth' });
+      };
+
+      // restore scroll position (e.g. after navigating to a card's page and back)
+      const saved = sessionStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const prevBehavior = track.style.scrollBehavior;
+        track.style.scrollBehavior = 'auto';
+        track.scrollLeft = parseInt(saved, 10) || 0;
+        track.style.scrollBehavior = prevBehavior;
+      }
+
+      leftBtn.addEventListener('click', () => scrollByCard(-1));
+      rightBtn.addEventListener('click', () => scrollByCard(1));
+      track.addEventListener('scroll', () => {
+        updateArrows();
+        sessionStorage.setItem(STORAGE_KEY, String(track.scrollLeft));
+      }, { passive: true });
+      window.addEventListener('resize', updateArrows);
+      updateArrows();
+
+      // click-and-drag scrolling for mouse; touch devices keep native scroll/swipe
+      let isDown = false;
+      let startX = 0;
+      let startScroll = 0;
+      let moved = 0;
+
+      track.addEventListener('pointerdown', (e) => {
+        if (e.pointerType !== 'mouse') return;
+        isDown = true;
+        moved = 0;
+        startX = e.clientX;
+        startScroll = track.scrollLeft;
+        track.classList.add('dragging');
+      });
+      window.addEventListener('pointermove', (e) => {
+        if (!isDown) return;
+        const dx = e.clientX - startX;
+        moved = Math.max(moved, Math.abs(dx));
+        track.scrollLeft = startScroll - dx;
+      });
+      const endDrag = () => {
+        if (!isDown) return;
+        isDown = false;
+        track.classList.remove('dragging');
+      };
+      window.addEventListener('pointerup', endDrag);
+      window.addEventListener('pointercancel', endDrag);
+
+      track.querySelectorAll('a.craft-card').forEach((card) => {
+        card.addEventListener('click', (e) => {
+          if (moved > 6) e.preventDefault();
+        });
+      });
+    }
+
+    document.querySelectorAll('.social-more').forEach((item) => {
+      const moreToggle = item.querySelector('.social-more-toggle');
+      moreToggle?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = item.classList.toggle('open');
+        moreToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    });
+    document.addEventListener('click', (e) => {
+      document.querySelectorAll('.social-more.open').forEach((item) => {
+        if (!item.contains(e.target)) {
+          item.classList.remove('open');
+          item.querySelector('.social-more-toggle')?.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  </script>
+
   <section class="about" id="work">
     <div class="wrap" style="display:block;">
       <div class="section-head">
-        <span class="kicker" style="color:var(--avocado);">Selected Work</span>
+        <span class="kicker" style="color:var(--avocado);">Personas</span>
         <h2>A few things worth a second look</h2>
-        <p>Systems, paintings, and film stills — different mediums, same instinct.</p>
+        <p>QAing, paintings, and writing — different mediums, same instinct.</p>
       </div>
       <div class="work-grid">
         {work.map((w) => (
@@ -126,7 +247,7 @@ const dispatches = [
       <div class="cta-band" id="contact">
         <h2>Hiring, collaborating, or just curious?</h2>
         <p>Open to conversations about QA, product, or anything from the other sections.</p>
-        <a class="btn-primary" href="mailto:wahidulalam.nahid@gmail.com">Say hello →</a>
+        <a class="btn-primary" href="https://www.linkedin.com/in/wahidulnahid/" target="_blank" rel="noopener">Say hello →</a>
       </div>
     </div>
   </section>

@@ -14,9 +14,8 @@ const {
 } = Astro.props;
 
 const navItems = [
-  { href: '/#about', label: 'About', key: 'about' },
+  { href: '/#about', label: 'The Polymath', key: 'about' },
   { href: '/#expertise', label: 'Expertise', key: 'expertise' },
-  { href: '/#work', label: 'Work', key: 'work' },
   { href: '/#dispatches', label: 'Dispatches', key: 'dispatches' },
 ];
 
@@ -49,19 +48,18 @@ const personaItems = [
       </button>
       <ul class="navlinks" id="navlinks">
         <li><a href={navItems[0].href} class={active === navItems[0].key ? 'active' : ''}>{navItems[0].label}</a></li>
+        <li><a href={navItems[1].href} class={active === navItems[1].key ? 'active' : ''}>{navItems[1].label}</a></li>
         <li class="has-dropdown">
-          <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+          <a href="/#work" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
             Personas <span class="caret" aria-hidden="true">▾</span>
-          </button>
+          </a>
           <ul class="dropdown-menu">
             {personaItems.map((item) => (
               <li><a href={item.href} class={active === item.key ? 'active' : ''}>{item.label}</a></li>
             ))}
           </ul>
         </li>
-        {navItems.slice(1).map((item) => (
-          <li><a href={item.href} class={active === item.key ? 'active' : ''}>{item.label}</a></li>
-        ))}
+        <li><a href={navItems[2].href} class={active === navItems[2].key ? 'active' : ''}>{navItems[2].label}</a></li>
         <li><a class="btn" href="/#contact">Contact</a></li>
       </ul>
     </div>
@@ -76,7 +74,7 @@ const personaItems = [
       const isOpen = navlinks?.classList.toggle('open');
       toggle.setAttribute('aria-expanded', String(Boolean(isOpen)));
     });
-    navlinks?.querySelectorAll('a').forEach((a) => {
+    navlinks?.querySelectorAll('a:not(.dropdown-toggle)').forEach((a) => {
       a.addEventListener('click', () => {
         navlinks.classList.remove('open');
         toggle?.setAttribute('aria-expanded', 'false');
@@ -106,6 +104,15 @@ const personaItems = [
       <div>
         <div class="fname">Wahidul Alam Nahid</div>
         <div class="floc">Dhaka, Bangladesh</div>
+        <a class="floc footer-email" href="mailto:wahidulalam.nahid@gmail.com">wahidulalam.nahid@gmail.com</a>
+        <div class="socials footer-socials">
+          <a class="social-linkedin" href="https://www.linkedin.com/in/wahidulnahid/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          <a class="social-github" href="https://github.com/wahidulalamnahid" target="_blank" rel="noopener" aria-label="GitHub">gh</a>
+          <a class="social-fb" href="https://www.facebook.com/wahid222/" target="_blank" rel="noopener" aria-label="Facebook">fb</a>
+          <a class="social-ig" href="https://www.instagram.com/being_polymath/" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+          <a class="social-pin" href="https://www.pinterest.com/wahidnahid/" target="_blank" rel="noopener" aria-label="Pinterest">pin</a>
+          <a class="social-yt" href="https://www.youtube.com/@PolySpectrumFilms" target="_blank" rel="noopener" aria-label="YouTube">yt</a>
+        </div>
       </div>
       <ul class="footlinks">
         {navItems.map((item) => (

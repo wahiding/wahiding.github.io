@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Van Gogh Professional Fusion — Wahidul Alam Nahid</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@500;600;700;800;900&family=Onest:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   VAN GOGH × PROFESSIONAL FUSION — restrained, blue-anchored.
+   --rust is repurposed as the PRIMARY brand/CTA color (Cobalt Blue,
+   PB28) since every button/hover/focus-state in the CSS already
+   flows through --rust — this one swap makes blue the site's
+   dominant "trustworthy tech" color with minimal code changes.
+   --maroon (CTA band bg) becomes deep Ultramarine navy (PB29).
+   Warm Van Gogh tones (Yellow Ochre, Viridian, Burnt Umber) survive
+   only as light-touch secondary accents, not full-saturation blocks.
+   Base is a soft, clean ivory instead of a strong ochre parchment —
+   reads as premium/professional rather than "painted."
+   ============================================================ */
+
+:root{
+  --bg:#F7F2E6; --bg-alt-1:#EFE6D0; --bg-alt-2:#E8DDC1; --ink:#15232F; --ink-soft:#52626F;
+  --rust:#17108C; --mustard:#C79A3D; --avocado:#3E6F60; --maroon:#12153A; --cream:#FBF7EC;
+  --teal:#0FADC7; --plum:#4A4570;
+  --line:rgba(21,35,47,.14);
+  --display:"Urbanist",sans-serif; --body:"Onest",sans-serif; --mono:"Space Mono",monospace;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:6rem;}
+
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;}
+a{color:inherit;}
+img{max-width:100%;display:block;}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.12;margin:0;letter-spacing:-.01em;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 1.6rem;}
+
+a:focus-visible, button:focus-visible{outline:2px solid var(--rust); outline-offset:2px;}
+
+.concept-tag{background:var(--plum);color:var(--cream);font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-align:center;padding:.5rem;text-transform:uppercase;}
+
+/* ---------- Nav ---------- */
+
+nav.site-nav{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:2px solid var(--ink);}
+nav.site-nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.6rem;}
+.logo{font-family:var(--display);font-weight:700;font-size:1.15rem;text-decoration:none;}
+.navlinks{display:flex;gap:1.8rem;list-style:none;padding:0;margin:0;font-size:.92rem;font-weight:500;align-items:center;}
+.navlinks a{text-decoration:none;color:var(--ink-soft);}
+.navlinks a:hover, .navlinks a.active{color:var(--rust);}
+.navlinks .btn{color:var(--cream);background:var(--ink);padding:.55rem 1.2rem;border-radius:100px;}
+.navlinks .btn:hover{background:var(--rust);color:var(--cream);}
+
+.has-dropdown{position:relative;}
+.dropdown-toggle{background:none;border:none;padding:0;margin:0;font-family:var(--body);font-size:inherit;font-weight:500;color:var(--ink-soft);cursor:pointer;display:inline-flex;align-items:center;gap:.3rem;text-decoration:none;}
+.dropdown-toggle:hover{color:var(--rust);}
+.caret{font-size:.7em;line-height:1;transition:transform .15s ease;}
+.has-dropdown:hover .caret{transform:rotate(180deg);}
+.dropdown-menu{position:absolute;top:100%;left:0;margin-top:.9rem;padding:.5rem;list-style:none;min-width:190px;background:var(--bg);border:2px solid var(--ink);border-radius:14px;opacity:0;pointer-events:none;transform:translateY(-6px);transition:opacity .15s ease, transform .15s ease;z-index:30;}
+.has-dropdown:hover .dropdown-menu{opacity:1;pointer-events:auto;transform:translateY(0);}
+.dropdown-menu li{margin:0;}
+.dropdown-menu a{display:block;padding:.55rem .7rem;border-radius:8px;font-size:.9rem;}
+.dropdown-menu a:hover{background:var(--bg-alt-1);color:var(--rust);}
+.has-dropdown::after{content:"";position:absolute;top:100%;left:0;height:.9rem;width:max(100%,200px);}
+
+/* ---------- Hero ---------- */
+
+.hero{position:relative;padding:4.5rem 0 5rem;overflow:hidden;}
+.disc{position:absolute;border-radius:50%;z-index:0;}
+.disc-1{width:420px;height:420px;top:-160px;right:-140px;background:var(--teal);opacity:.14;}
+.disc-2{width:300px;height:300px;top:-90px;right:-40px;background:var(--rust);opacity:.16;}
+.disc-3{width:160px;height:160px;bottom:-60px;left:-40px;background:var(--mustard);opacity:.18;}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.8rem;color:var(--cream);background:var(--rust);padding:.4rem 1rem;border-radius:100px;margin-bottom:1.4rem;font-weight:700;}
+.hero h1{font-size:clamp(2.5rem,5.2vw,3.8rem);margin-bottom:1.1rem;}
+.hero h1 .c1{color:var(--rust);} .hero h1 .c2{color:var(--teal);}
+.hero .lede{font-size:1.15rem;color:var(--ink-soft);max-width:46ch;margin-bottom:2rem;}
+.btn-row{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-primary{background:var(--rust);color:var(--cream);text-decoration:none;padding:.9rem 1.7rem;border-radius:100px;font-weight:700;font-size:.95rem;display:inline-block;border:none;cursor:pointer;font-family:var(--body);}
+.btn-primary:hover{background:var(--maroon);}
+.btn-ghost{border:2px solid var(--ink);color:var(--ink);text-decoration:none;padding:.85rem 1.6rem;border-radius:100px;font-weight:700;font-size:.95rem;display:inline-block;}
+.btn-ghost:hover{background:var(--ink);color:var(--cream);}
+.hero-photo{position:relative;}
+.hero-photo .frame{aspect-ratio:4/5;border-radius:26px;overflow:hidden;background:var(--bg-alt-2);border:3px solid var(--ink);}
+.hero-photo img{width:100%;height:100%;object-fit:cover;}
+.hero-photo .tag-float{position:absolute;bottom:-20px;left:-20px;background:var(--maroon);color:var(--cream);padding:.9rem 1.2rem;border-radius:14px;font-size:.85rem;border:2px solid var(--mustard);}
+.hero-photo .tag-float b{color:var(--mustard);}
+
+/* ---------- Section shell ---------- */
+
+section{padding:5rem 0;}
+.section-head{max-width:56ch;margin-bottom:2.6rem;}
+.kicker{font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;display:block;margin-bottom:.7rem;}
+.section-head p{color:var(--ink-soft);margin-top:.8rem;}
+
+/* ---------- About ---------- */
+
+.about{background:var(--bg-alt-1);}
+.about .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:3.5rem;align-items:center;}
+.about-photo{aspect-ratio:1/1;border-radius:24px;overflow:hidden;background:var(--plum);border:3px solid var(--ink);}
+.about-photo img{width:100%;height:100%;object-fit:cover;}
+.about-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:1.8rem;}
+.fact{border-top:2px solid var(--ink);padding-top:.7rem;}
+.fact b{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--maroon);margin-bottom:.3rem;font-family:var(--mono);}
+.socials{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-top:1.6rem;}
+.socials a{width:40px;height:40px;border-radius:50%;border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.72rem;font-family:var(--display);font-weight:700;color:var(--ink);}
+.socials .social-linkedin:hover{background:var(--rust);border-color:var(--rust);color:var(--cream);}
+.socials .social-github:hover{background:var(--avocado);border-color:var(--avocado);color:var(--cream);}
+.socials .social-fb:hover{background:var(--teal);border-color:var(--teal);color:var(--cream);}
+.socials .social-ig:hover{background:var(--plum);border-color:var(--plum);color:var(--cream);}
+.socials .social-pin:hover{background:var(--maroon);border-color:var(--maroon);color:var(--cream);}
+.socials .social-yt:hover{background:var(--mustard);border-color:var(--mustard);color:var(--ink);}
+.socials .social-email:hover{background:var(--ink);border-color:var(--ink);color:var(--cream);}
+
+.social-more{display:inline-flex;align-items:center;gap:0;}
+.social-more-toggle{width:40px;height:40px;flex:0 0 auto;border-radius:50%;border:2px solid var(--ink);background:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.05rem;color:var(--ink);padding:0;overflow:hidden;transition:width .3s ease, opacity .25s ease, border-width .3s ease;}
+.social-more-toggle:hover{background:var(--ink);color:var(--cream);}
+.social-more:hover .social-more-toggle{width:0;opacity:0;border-width:0;}
+.social-more-menu{display:flex;align-items:center;gap:0;max-width:0;overflow:hidden;opacity:0;transition:max-width .4s ease, opacity .3s ease, gap .4s ease;}
+.social-more:hover .social-more-menu{max-width:260px;opacity:1;gap:1rem;}
+
+/* ---------- The Craft (carousel) ---------- */
+
+.craft-question{font-family:var(--display);font-weight:700;font-size:1.3rem;color:var(--ink);margin-top:1.2rem;}
+.carousel{position:relative;}
+.carousel-track{display:flex;gap:1.4rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:.5rem 0 1rem;cursor:grab;scrollbar-width:none;-ms-overflow-style:none;}
+.carousel-track::-webkit-scrollbar{display:none;}
+.craft-card{flex:0 0 calc((100% - 3*1.4rem)/4);scroll-snap-align:start;border:2px solid var(--ink);border-radius:20px;padding:1.8rem;background:var(--bg);position:relative;overflow:hidden;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;}
+.craft-card::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;}
+.craft-card.c1::before{background:var(--rust);} .craft-card.c2::before{background:var(--mustard);}
+.craft-card.c3::before{background:var(--avocado);} .craft-card.c4::before{background:var(--maroon);}
+.craft-card.c5::before{background:var(--teal);} .craft-card.c6::before{background:var(--plum);}
+.craft-card .num{font-family:var(--mono);font-size:.85rem;margin-bottom:1rem;display:block;font-weight:700;}
+.craft-card.c1 .num{color:var(--rust);} .craft-card.c2 .num{color:var(--mustard);}
+.craft-card.c3 .num{color:var(--avocado);} .craft-card.c4 .num{color:var(--maroon);}
+.craft-card.c5 .num{color:var(--teal);} .craft-card.c6 .num{color:var(--plum);}
+.craft-card h3{font-size:1.15rem;margin-bottom:.7rem;}
+.craft-card p{font-size:.92rem;color:var(--ink-soft);margin:0 0 .9rem;}
+.craft-card .craft-note{font-size:.85rem;font-style:italic;color:var(--ink);margin-top:-.3rem;}
+.craft-card .craft-explore{font-family:var(--mono);font-size:.82rem;font-weight:700;color:var(--ink);margin-top:auto;padding-top:.4rem;}
+.craft-card:hover .craft-explore{color:var(--rust);}
+.carousel-arrow{position:absolute;top:45%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:2px solid var(--ink);background:var(--bg);font-size:1.4rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:5;color:var(--ink);box-shadow:0 6px 14px rgba(22,33,43,.14);}
+.carousel-arrow:hover{background:var(--ink);color:var(--cream);}
+.carousel-arrow[hidden]{display:none;}
+.carousel-arrow-left{left:-22px;}
+.carousel-arrow-right{right:-22px;}
+
+@media (max-width:1240px){ .carousel-arrow-left{left:.4rem;} .carousel-arrow-right{right:.4rem;} }
+@media (max-width:900px){ .craft-card{flex:0 0 72%;} .carousel-arrow{display:none;} }
+@media (max-width:560px){ .craft-card{flex:0 0 84%;padding:1.4rem;} }
+
+/* ---------- Selected work ---------- */
+
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;}
+.work-card{border-radius:20px;overflow:hidden;text-decoration:none;color:var(--ink);border:2px solid var(--ink);background:var(--bg);}
+.work-card .thumb{aspect-ratio:4/3;}
+.work-card:nth-child(1) .thumb{background:var(--rust);}
+.work-card:nth-child(2) .thumb{background:var(--avocado);}
+.work-card:nth-child(3) .thumb{background:var(--mustard);}
+.work-card .thumb img{width:100%;height:100%;object-fit:cover;}
+.work-card .cap{padding:1.1rem 1.3rem;}
+.work-card .cap .kicker-sm{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;}
+.work-card h3{font-size:1.02rem;margin-top:.3rem;}
+
+/* ---------- CTA band ---------- */
+
+.cta-band{background:var(--rust);color:var(--cream);border-radius:28px;margin:0 1.6rem;padding:3.6rem 3rem;text-align:center;}
+.cta-band h2{color:var(--cream);font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:1rem;}
+.cta-band p{color:#C7CBEE;margin-bottom:1.8rem;}
+.cta-band .btn-primary{background:#FDC500;color:var(--ink);}
+.cta-band .btn-primary:hover{background:var(--cream);}
+
+/* ---------- Dispatches ---------- */
+
+.dispatch-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;}
+.dispatch-card{border:2px solid var(--ink);border-radius:20px;padding:1.8rem;text-decoration:none;color:var(--ink);background:var(--bg-alt-1);}
+.dispatch-card .tag{font-family:var(--mono);font-size:.75rem;color:var(--rust);font-weight:700;text-transform:uppercase;letter-spacing:.05em;}
+.dispatch-card h3{margin:.6rem 0 .6rem;font-size:1.2rem;}
+.dispatch-card p{color:var(--ink-soft);font-size:.94rem;margin:0;}
+
+/* ---------- Footer ---------- */
+
+footer.site-footer{border-top:2px solid var(--ink);padding:2.6rem 0 3rem;margin-top:1rem;}
+footer.site-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.8rem 2.5rem;align-items:flex-start;}
+footer.site-footer .fname{font-family:var(--display);font-weight:700;}
+footer.site-footer .floc{color:var(--ink-soft);font-size:.88rem;margin-top:.2rem;}
+.footlinks{display:flex;flex-direction:column;gap:.6rem;list-style:none;padding:0;margin:0;font-size:.9rem;font-weight:500;}
+.footlinks a{text-decoration:none;color:var(--ink-soft);}
+.footlinks a:hover{color:var(--rust);}
+.footer-email{display:block;margin-top:.4rem;text-decoration:none;}
+.footer-email:hover{color:var(--rust);}
+.footer-socials{margin-top:1.1rem;gap:.7rem;}
+.footer-socials a{width:34px;height:34px;font-size:.65rem;}
+
+@media (max-width:900px){
+  .hero .wrap,.about .wrap{grid-template-columns:1fr;}
+  .work-grid,.dispatch-grid{grid-template-columns:1fr;}
+  .navlinks{display:none;}
+}
+@media (max-width:600px){ footer.site-footer .wrap{flex-direction:column;gap:1.6rem;} }
+@media (max-width:560px){
+  body{font-size:16px;}
+  .about-facts{grid-template-columns:1fr;}
+  .cta-band{margin:0;padding:2.4rem 1.6rem;border-radius:20px;}
+  .hero{padding:2.4rem 0 2.6rem;}
+  section{padding:3rem 0;}
+}
+</style>
+</head>
+<body>
+<div class="concept-tag">Professional Fusion v2 — deep Ultramarine as primary, vibrant turquoise accents, restrained ochre/viridian</div>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="logo" href="#">Wahidul Alam Nahid</a>
+    <ul class="navlinks">
+      <li><a href="#about">The Polymath</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li class="has-dropdown">
+        <a href="#work" class="dropdown-toggle">Personas <span class="caret">▾</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">QA Engineer</a></li>
+          <li><a href="#">Writer</a></li>
+          <li><a href="#">Artist</a></li>
+          <li><a href="#">Filmmaker</a></li>
+          <li><a href="#">Psychology</a></li>
+          <li><a href="#">Collector</a></li>
+        </ul>
+      </li>
+      <li><a href="#dispatches">Dispatches</a></li>
+      <li><a class="btn" href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="disc disc-1"></div>
+  <div class="disc disc-2"></div>
+  <div class="disc disc-3"></div>
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">● QA Engineer · Dhaka, Bangladesh</span>
+      <h1>I <span class="c1">break</span> things on purpose, so your <span class="c2">users</span> don't have to.</h1>
+      <p class="lede">QA Engineer on the Platform &amp; Partners team at Ding, an international fintech company behind DingMoney, Top-Up, and Vouchers. Backend, frontend, and API testing, root-cause analysis, and CI/CD automation by day. Off the clock: writing, painting, film, and collecting coins &amp; postage stamps with better stories than most people's vacations.</p>
+      <div class="btn-row">
+        <a class="btn-primary" href="#contact">Get In Touch</a>
+        <a class="btn-ghost" href="#">Download Résumé</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="frame"><img src="../public/images/hero.jpg" alt="Wahidul Alam Nahid" onerror="this.style.display='none'" /></div>
+      <div class="tag-float"><b>Jr. QA Engineer</b> at Ding — Fintech Platform</div>
+    </div>
+  </div>
+</header>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-photo"><img src="../public/images/portrait.jpg" alt="Portrait" onerror="this.style.display='none'" /></div>
+    <div>
+      <span class="kicker" style="color:var(--maroon);">The Polymath</span>
+      <h2>A QA engineer by profession. A polymath by instinct.</h2>
+      <p style="color:var(--ink-soft);margin-top:1rem;">I build confidence in software by uncovering what others overlook. The same curiosity follows me beyond engineering—into writing, painting, filmmaking, psychology, and collecting pieces of history.</p>
+      <p style="color:var(--ink-soft);">I don't see these as separate identities. They're different ways of exploring the same question: How do people, systems, and stories truly work?</p>
+      <p style="color:var(--ink-soft);">This website is a map of that exploration—a place where code meets creativity, logic meets emotion, and every project reflects another way of seeing the world.</p>
+      <div class="about-facts">
+        <div class="fact"><b>Role</b>Jr. QA Engineer, Platform &amp; Partners — Ding</div>
+        <div class="fact"><b>Based in</b>Dhaka, Bangladesh</div>
+        <div class="fact"><b>Beyond Work</b>Writer • Artist • Collector • Lifelong Learner</div>
+      </div>
+      <div class="socials">
+        <a class="social-linkedin" href="#">in</a>
+        <a class="social-github" href="#">gh</a>
+        <a class="social-email" href="#">@</a>
+        <div class="social-more">
+          <button class="social-more-toggle">→</button>
+          <div class="social-more-menu">
+            <a class="social-fb" href="#">fb</a>
+            <a class="social-ig" href="#">ig</a>
+            <a class="social-pin" href="#">pin</a>
+            <a class="social-yt" href="#">yt</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="expertise">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker" style="color:var(--rust);">The Craft</span>
+      <h2>Six ways I explore the world.</h2>
+      <p>I don't think of these as separate careers or hobbies. They're different expressions of the same instinct—to observe deeply, understand honestly, and create something meaningful from what I find.</p>
+      <p>Whether I'm tracing a bug through logs, writing a psychological novel, painting a quiet street, or studying human behavior, I'm ultimately asking the same question:</p>
+      <p class="craft-question">What lies beneath the surface?</p>
+    </div>
+    <div class="carousel">
+      <button class="carousel-arrow carousel-arrow-left" hidden>‹</button>
+      <div class="carousel-track" id="craft-track">
+        <a class="craft-card c1" href="#">
+          <span class="num">01</span>
+          <h3>Software Quality Engineering</h3>
+          <p>I build confidence in software by uncovering what others overlook. From backend APIs and fintech systems to CI/CD pipelines and production logs, I enjoy following small inconsistencies until they reveal the larger story. To me, quality isn't just testing—it's understanding complex systems.</p>
+          <span class="craft-explore">Explore →</span>
+        </a>
+        <a class="craft-card c2" href="#">
+          <span class="num">02</span>
+          <h3>Writing &amp; Literature</h3>
+          <p>Writing is where observation becomes memory. I write novels, essays, poetry, journals, and reflections that explore identity, grief, memory, relationships, and the quiet questions people carry throughout their lives. My stories rarely begin with a plot—they begin with a feeling that refuses to leave.</p>
+          <p class="craft-note">Current work: অভ্যন্তর, a psychological novel about trauma, memory, and the fragile architecture of identity.</p>
+          <span class="craft-explore">Explore →</span>
+        </a>
+        <a class="craft-card c3" href="#">
+          <span class="num">03</span>
+          <h3>Art &amp; Visual Expression</h3>
+          <p>Some emotions arrive before language does. Watercolor, ink, photography, and illustration help me explore those moments that words cannot completely describe. I'm drawn to atmosphere, silence, imperfect textures, and ordinary scenes that reveal extraordinary feelings when observed patiently.</p>
+          <span class="craft-explore">Explore →</span>
+        </a>
+        <a class="craft-card c4" href="#">
+          <span class="num">04</span>
+          <h3>Cinema &amp; Storytelling</h3>
+          <p>Film combines everything I love—writing, visuals, sound, rhythm, and human emotion. I enjoy creating stories that linger after the screen goes dark, where quiet moments often speak louder than dialogue. Every frame is another way of asking people to pause and notice.</p>
+          <span class="craft-explore">Explore →</span>
+        </a>
+        <a class="craft-card c5" href="#">
+          <span class="num">05</span>
+          <h3>Psychology &amp; Human Nature</h3>
+          <p>I'm fascinated by the invisible systems behind people—the way memory shapes identity, how trauma alters perception, why habits form, and how emotions quietly influence our decisions. Psychology isn't just something I read; it influences how I write, design, test software, and understand the people around me.</p>
+          <span class="craft-explore">Explore →</span>
+        </a>
+        <a class="craft-card c6" href="#">
+          <span class="num">06</span>
+          <h3>Collecting, Research &amp; Lifelong Learning</h3>
+          <p>I collect coins because every object carries a history beyond its material worth. That same curiosity extends into AI, philosophy, software architecture, design, history, and anything that helps me see the world from another perspective. Learning isn't a destination—it's the thread connecting everything I create.</p>
+          <span class="craft-explore">Explore →</span>
+        </a>
+      </div>
+      <button class="carousel-arrow carousel-arrow-right">›</button>
+    </div>
+  </div>
+</section>
+
+<script>
+  const track = document.getElementById('craft-track');
+  const carousel = track?.closest('.carousel');
+  const leftBtn = carousel?.querySelector('.carousel-arrow-left');
+  const rightBtn = carousel?.querySelector('.carousel-arrow-right');
+  if (track && leftBtn && rightBtn) {
+    const updateArrows = () => {
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      leftBtn.hidden = track.scrollLeft <= 4;
+      rightBtn.hidden = maxScroll <= 4 || track.scrollLeft >= maxScroll - 4;
+    };
+    const scrollByCard = (dir) => {
+      const card = track.querySelector('.craft-card');
+      const amount = card ? card.getBoundingClientRect().width + 22 : 300;
+      track.scrollBy({ left: dir * amount, behavior: 'smooth' });
+    };
+    leftBtn.addEventListener('click', () => scrollByCard(-1));
+    rightBtn.addEventListener('click', () => scrollByCard(1));
+    track.addEventListener('scroll', updateArrows, { passive: true });
+    window.addEventListener('resize', updateArrows);
+    updateArrows();
+  }
+</script>
+
+<section class="about" id="work">
+  <div class="wrap" style="display:block;">
+    <div class="section-head">
+      <span class="kicker" style="color:var(--avocado);">Personas</span>
+      <h2>A few things worth a second look</h2>
+      <p>QAing, paintings, and writing — different mediums, same instinct.</p>
+    </div>
+    <div class="work-grid">
+      <a class="work-card" href="#">
+        <div class="thumb"><img src="../public/images/work-qa.png" alt="QA" onerror="this.style.display='none'" /></div>
+        <div class="cap"><span class="kicker-sm">QA</span><h3>Backend, Frontend &amp; API Testing</h3></div>
+      </a>
+      <a class="work-card" href="#">
+        <div class="thumb"><img src="../public/images/work-art.jpg" alt="Artist" onerror="this.style.display='none'" /></div>
+        <div class="cap"><span class="kicker-sm">Artist</span><h3>Abstract painting, mood over precision</h3></div>
+      </a>
+      <a class="work-card" href="#">
+        <div class="thumb"><img src="../public/images/work-writer.jpg" alt="Writer" onerror="this.style.display='none'" /></div>
+        <div class="cap"><span class="kicker-sm">Writer</span><h3>Writing, to understand rather than impress</h3></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-band" id="contact">
+      <h2>Hiring, collaborating, or just curious?</h2>
+      <p>Open to conversations about QA, product, or anything from the other sections.</p>
+      <a class="btn-primary" href="#">Say hello →</a>
+    </div>
+  </div>
+</section>
+
+<section id="dispatches">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker" style="color:var(--mustard);">Recent Dispatches</span>
+      <h2>Latest writing</h2>
+    </div>
+    <div class="dispatch-grid">
+      <a class="dispatch-card" href="#">
+        <span class="tag">QA</span>
+        <h3>The Celdon Shooper Principle: Why Edge Cases Aren't Optional</h3>
+        <p>Some testers chase bugs. This one hunts realities most teams don't even imagine.</p>
+      </a>
+      <a class="dispatch-card" href="#">
+        <span class="tag">QA</span>
+        <h3>Of Bugs, Buttons, and Broken Dreams: A QA Tale</h3>
+        <p>Once upon a test cycle, a regional setting made the main action button vanish.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <div class="fname">Wahidul Alam Nahid</div>
+      <div class="floc">Dhaka, Bangladesh</div>
+      <a class="floc footer-email" href="#">wahidulalam.nahid@gmail.com</a>
+      <div class="socials footer-socials">
+        <a class="social-linkedin" href="#">in</a>
+        <a class="social-github" href="#">gh</a>
+        <a class="social-fb" href="#">fb</a>
+        <a class="social-ig" href="#">ig</a>
+        <a class="social-pin" href="#">pin</a>
+        <a class="social-yt" href="#">yt</a>
+      </div>
+    </div>
+    <ul class="footlinks">
+      <li><a href="#about">The Polymath</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#dispatches">Dispatches</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <ul class="footlinks">
+      <li><a href="#">QA Engineer</a></li>
+      <li><a href="#">Writer</a></li>
+      <li><a href="#">Artist</a></li>
+      <li><a href="#">Filmmaker</a></li>
+      <li><a href="#">Psychology</a></li>
+      <li><a href="#">Collector</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
