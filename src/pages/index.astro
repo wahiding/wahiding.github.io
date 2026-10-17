@@ -4,11 +4,11 @@ import Layout from '../layouts/Layout.astro';
 const craft = [
   {
     n: '01', c: 'c1', href: '/qa-engineer', title: 'Software Quality Engineering',
-    body: "I build confidence in software by uncovering what others overlook. From backend APIs and fintech systems to CI/CD pipelines and production logs, I enjoy following small inconsistencies until they reveal the larger story. To me, quality isn't just testing—it's understanding complex systems.",
+    body: "I build confidence in software by uncovering what others overlook. From backend APIs and fintech systems to CI/CD pipelines and production logs, I enjoy following small inconsistencies until they reveal the larger story. To me, quality isn't just testing. It's understanding complex systems.",
   },
   {
     n: '02', c: 'c2', href: '/writer', title: 'Writing & Literature',
-    body: "Writing is where observation becomes memory. I write novels, essays, poetry, journals, and reflections that explore identity, grief, memory, relationships, and the quiet questions people carry throughout their lives. My stories rarely begin with a plot—they begin with a feeling that refuses to leave.",
+    body: "Writing is where observation becomes memory. I write novels, essays, poetry, journals, and reflections that explore identity, grief, memory, relationships, and the quiet questions people carry throughout their lives. My stories rarely begin with a plot. They begin with a feeling that refuses to leave.",
     note: 'Current work: অভ্যন্তর, a psychological novel about trauma, memory, and the fragile architecture of identity.',
   },
   {
@@ -16,23 +16,23 @@ const craft = [
     body: "Some emotions arrive before language does. Watercolor, ink, photography, and illustration help me explore those moments that words cannot completely describe. I'm drawn to atmosphere, silence, imperfect textures, and ordinary scenes that reveal extraordinary feelings when observed patiently.",
   },
   {
-    n: '04', c: 'c4', href: '/filmmaker', title: 'Cinema & Storytelling',
-    body: "Film combines everything I love—writing, visuals, sound, rhythm, and human emotion. I enjoy creating stories that linger after the screen goes dark, where quiet moments often speak louder than dialogue. Every frame is another way of asking people to pause and notice.",
+    n: '04', c: 'c4', title: 'Cinema & Storytelling',
+    body: "Film combines everything I love: writing, visuals, sound, rhythm, and human emotion. I enjoy creating stories that linger after the screen goes dark, where quiet moments often speak louder than dialogue. Every frame is another way of asking people to pause and notice.",
   },
   {
-    n: '05', c: 'c5', href: '/psychology', title: 'Psychology & Human Nature',
-    body: "I'm fascinated by the invisible systems behind people—the way memory shapes identity, how trauma alters perception, why habits form, and how emotions quietly influence our decisions. Psychology isn't just something I read; it influences how I write, design, test software, and understand the people around me.",
+    n: '05', c: 'c5', title: 'Psychology & Human Nature',
+    body: "I'm fascinated by the invisible systems behind people: the way memory shapes identity, how trauma alters perception, why habits form, and how emotions quietly influence our decisions. Psychology isn't just something I read; it influences how I write, design, test software, and understand the people around me.",
   },
   {
-    n: '06', c: 'c6', href: '/collector', title: 'Collecting, Research & Lifelong Learning',
-    body: "I collect coins because every object carries a history beyond its material worth. That same curiosity extends into AI, philosophy, software architecture, design, history, and anything that helps me see the world from another perspective. Learning isn't a destination—it's the thread connecting everything I create.",
+    n: '06', c: 'c6', title: 'Collecting, Research & Lifelong Learning',
+    body: "I collect coins because every object carries a history beyond its material worth. That same curiosity extends into AI, philosophy, software architecture, design, history, and anything that helps me see the world from another perspective. Learning isn't a destination. It's the thread connecting everything I create.",
   },
 ];
 
 const work = [
-  { href: '/qa-engineer', img: '/images/work-qa.png', kicker: 'QA', title: 'Backend, Frontend & API Testing' },
-  { href: '/artist', img: '/images/work-art.jpg', kicker: 'Artist', title: 'Abstract painting, mood over precision' },
-  { href: '/writer', img: '/images/work-writer.jpg', kicker: 'Writer', title: 'Writing, to understand rather than impress' },
+  { href: '/qa-engineer', img: '/images/work-qa.png', alt: 'Illustrated portrait of Wahidul at his desk with a coffee mug, in front of screens showing the Ding top-up flow', kicker: 'QA', title: 'Backend, Frontend & API Testing' },
+  { href: '/artist', img: '/images/work-art.jpg', alt: 'Wahidul painting a vase of sunflowers in watercolor at an outdoor table, with a reference image beside him', kicker: 'Artist', title: 'Watercolor and ink, mood over precision' },
+  { href: '/writer', img: '/images/work-writer.jpg', alt: 'Wahidul smiling in a mustard kurta in a yellow courtyard with green doors', kicker: 'Writer', title: 'Writing, to understand rather than impress' },
 ];
 
 const dispatches = [
@@ -47,8 +47,43 @@ const dispatches = [
     excerpt: 'Once upon a test cycle, a regional setting made the main action button vanish.',
   },
 ];
+const siteUrl = 'https://wahiding.github.io';
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${siteUrl}/#person`,
+    name: 'Wahidul Alam Nahid',
+    url: `${siteUrl}/`,
+    image: `${siteUrl}/images/portrait.jpg`,
+    jobTitle: 'Junior QA Engineer',
+    worksFor: { '@type': 'Organization', name: 'Ding' },
+    address: { '@type': 'PostalAddress', addressLocality: 'Dhaka', addressCountry: 'BD' },
+    knowsAbout: ['Software quality assurance', 'API testing', 'Writing', 'Watercolor painting'],
+    sameAs: [
+      'https://www.linkedin.com/in/wahidulnahid/',
+      'https://github.com/wahidulalamnahid',
+      'https://www.facebook.com/wahid222/',
+      'https://www.instagram.com/being_polymath/',
+      'https://www.pinterest.com/wahidnahid/',
+      'https://www.youtube.com/@PolySpectrumFilms',
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Wahidul Alam Nahid',
+    url: `${siteUrl}/`,
+    author: { '@id': `${siteUrl}/#person` },
+  },
+];
 ---
-<Layout title="Wahidul Alam Nahid — QA Engineer, Writer, Artist" active="">
+<Layout
+  title="Wahidul Alam Nahid | QA Engineer, Writer, Artist"
+  description="Portfolio of Wahidul Alam Nahid, a QA engineer at Ding in Dhaka who also writes, paints and collects coins. Backend and API testing, essays and a Bengali novel."
+  jsonLd={jsonLd}
+  active=""
+>
 
   <header class="hero">
     <div class="disc disc-1"></div>
@@ -65,23 +100,23 @@ const dispatches = [
         </div>
       </div>
       <div class="hero-photo">
-        <div class="frame"><img src="/images/hero.jpg" alt="Wahidul Alam Nahid" onerror="this.style.display='none'" /></div>
-        <div class="tag-float"><b>Jr. QA Engineer</b> at Ding — Fintech Platform</div>
+        <div class="frame"><img src="/images/hero.jpg" alt="Wahidul Alam Nahid in a beige suit with arms crossed, looking at the camera" /></div>
+        <div class="tag-float"><b>Jr. QA Engineer</b> at Ding, a fintech platform</div>
       </div>
     </div>
   </header>
 
   <section class="about" id="about">
     <div class="wrap">
-      <div class="about-photo"><img src="/images/portrait.jpg" alt="Portrait" onerror="this.style.display='none'" /></div>
+      <div class="about-photo"><img src="/images/portrait.jpg" alt="Wahidul smiling in sunglasses at the beach" /></div>
       <div>
         <span class="kicker" style="color:var(--maroon);">The Polymath</span>
         <h2>A QA engineer by profession. A polymath by instinct.</h2>
-        <p style="color:var(--ink-soft);margin-top:1rem;">I build confidence in software by uncovering what others overlook. The same curiosity follows me beyond engineering—into writing, painting, filmmaking, psychology, and collecting pieces of history.</p>
+        <p style="color:var(--ink-soft);margin-top:1rem;">I build confidence in software by uncovering what others overlook. The same curiosity follows me beyond engineering, into writing, painting, filmmaking, psychology, and collecting pieces of history.</p>
         <p style="color:var(--ink-soft);">I don't see these as separate identities. They're different ways of exploring the same question: How do people, systems, and stories truly work?</p>
-        <p style="color:var(--ink-soft);">This website is a map of that exploration—a place where code meets creativity, logic meets emotion, and every project reflects another way of seeing the world.</p>
+        <p style="color:var(--ink-soft);">This website is a map of that exploration: a place where code meets creativity, logic meets emotion, and every project reflects another way of seeing the world.</p>
         <div class="about-facts">
-          <div class="fact"><b>Role</b>Jr. QA Engineer, Platform &amp; Partners — Ding</div>
+          <div class="fact"><b>Role</b>Jr. QA Engineer, Platform &amp; Partners, Ding</div>
           <div class="fact"><b>Based in</b>Dhaka, Bangladesh</div>
           <div class="fact"><b>Beyond Work</b>Writer • Artist • Collector • Lifelong Learner</div>
         </div>
@@ -108,7 +143,7 @@ const dispatches = [
       <div class="section-head">
         <span class="kicker" style="color:var(--rust);">The Craft</span>
         <h2>Six ways I explore the world.</h2>
-        <p>I don't think of these as separate careers or hobbies. They're different expressions of the same instinct—to observe deeply, understand honestly, and create something meaningful from what I find.</p>
+        <p>I don't think of these as separate careers or hobbies. They're different expressions of the same instinct: to observe deeply, understand honestly, and create something meaningful from what I find.</p>
         <p>Whether I'm tracing a bug through logs, writing a psychological novel, painting a quiet street, or studying human behavior, I'm ultimately asking the same question:</p>
         <p class="craft-question">What lies beneath the surface?</p>
       </div>
@@ -116,15 +151,18 @@ const dispatches = [
       <div class="carousel">
         <button class="carousel-arrow carousel-arrow-left" aria-label="Scroll left" hidden>‹</button>
         <div class="carousel-track" id="craft-track">
-          {craft.map((c) => (
-            <a class={`craft-card ${c.c}`} href={c.href}>
-              <span class="num">{c.n}</span>
-              <h3>{c.title}</h3>
-              <p>{c.body}</p>
-              {c.note && <p class="craft-note">{c.note}</p>}
-              <span class="craft-explore">Explore →</span>
-            </a>
-          ))}
+          {craft.map((c) => {
+            const Tag = c.href ? 'a' : 'div';
+            return (
+              <Tag class={`craft-card ${c.c}`} href={c.href}>
+                <span class="num">{c.n}</span>
+                <h3>{c.title}</h3>
+                <p>{c.body}</p>
+                {c.note && <p class="craft-note">{c.note}</p>}
+                {c.href && <span class="craft-explore">Explore →</span>}
+              </Tag>
+            );
+          })}
         </div>
         <button class="carousel-arrow carousel-arrow-right" aria-label="Scroll right">›</button>
       </div>
@@ -229,12 +267,12 @@ const dispatches = [
       <div class="section-head">
         <span class="kicker" style="color:var(--avocado);">Personas</span>
         <h2>A few things worth a second look</h2>
-        <p>QAing, paintings, and writing — different mediums, same instinct.</p>
+        <p>QAing, paintings, and writing: different mediums, same instinct.</p>
       </div>
       <div class="work-grid">
         {work.map((w) => (
           <a class="work-card" href={w.href}>
-            <div class="thumb"><img src={w.img} alt={w.title} onerror="this.style.display='none'" /></div>
+            <div class="thumb"><img src={w.img} alt={w.alt} loading="lazy" /></div>
             <div class="cap"><span class="kicker-sm">{w.kicker}</span><h3>{w.title}</h3></div>
           </a>
         ))}

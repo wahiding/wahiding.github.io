@@ -1,7 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ExploreMore from '../../components/ExploreMore.astro';
 ---
-<Layout title="The Celdon Shooper Principle — Wahidul Alam Nahid" active="dispatches">
+<Layout
+  title="The Celdon Shooper Principle | Wahidul Alam Nahid"
+  description="Why edge cases are not optional: a QA essay on Celdon Shooper, the tester who hunts realities most teams never imagine."
+  breadcrumbs={[{ label: 'Dispatches', href: '/#dispatches' }, { label: 'The Celdon Shooper Principle', href: '/blog/celdon-shooper-principle' }]}
+  active="dispatches"
+>
 
   <header class="article-hero">
     <div class="wrap">
@@ -39,6 +45,8 @@ import Layout from '../../layouts/Layout.astro';
       <p><strong>So here's to the edge-case hunters, the path-breakers, the Celdon Shoopers of the world.</strong></p>
     </div>
   </section>
+
+  <ExploreMore items={[{ label: 'Next: Bugs, Buttons, and Broken Dreams', href: '/blog/bugs-buttons-broken-dreams' }, { label: 'QA Engineer', href: '/qa-engineer' }]} />
 
   <div class="back-link wrap"><a class="btn-ghost" href="/#dispatches">← All dispatches</a></div>
 

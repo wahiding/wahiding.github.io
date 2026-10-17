@@ -1,0 +1,12 @@
+---
+export interface Props {
+  items: { label: string; href: string }[];
+}
+const { items } = Astro.props;
+---
+<nav class="explore-more wrap" aria-label="More from Wahid">
+  <span class="kicker">Keep exploring</span>
+  <div class="btn-row">
+    {items.map((item) => <a class="btn-ghost" href={item.href}>{item.label}</a>)}
+  </div>
+</nav>

@@ -1,7 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ExploreMore from '../../components/ExploreMore.astro';
 ---
-<Layout title="Of Bugs, Buttons, and Broken Dreams — Wahidul Alam Nahid" active="dispatches">
+<Layout
+  title="Of Bugs, Buttons, and Broken Dreams | Wahidul Alam Nahid"
+  description="A QA tale about a regional setting that made the main action button vanish, and what tiny cracks teach testers about user experience."
+  breadcrumbs={[{ label: 'Dispatches', href: '/#dispatches' }, { label: 'Of Bugs, Buttons, and Broken Dreams', href: '/blog/bugs-buttons-broken-dreams' }]}
+  active="dispatches"
+>
 
   <header class="article-hero">
     <div class="wrap">
@@ -33,6 +39,8 @@ import Layout from '../../layouts/Layout.astro';
       <p><em>A polymath exploring systems through QA, emotions through film, silence through art, and truth through writing—Wahid presents this site as a canvas for expression rather than impression.</em></p>
     </div>
   </section>
+
+  <ExploreMore items={[{ label: 'Next: The Celdon Shooper Principle', href: '/blog/celdon-shooper-principle' }, { label: 'QA Engineer', href: '/qa-engineer' }]} />
 
   <div class="back-link wrap"><a class="btn-ghost" href="/#dispatches">← All dispatches</a></div>
 
