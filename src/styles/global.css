@@ -383,6 +383,10 @@ footer.site-footer .floc{color:var(--ink-soft);font-size:.88rem;margin-top:.2rem
 /* Novel chapters: roomier Bengali text, scene breaks, chapter list + prev/next */
 .chapter-text p{line-height:1.9;font-size:1.2rem;color:var(--ink);}
 .chapter-text blockquote{font-style:normal;line-height:1.9;}
+/* Narrow columns + justified Bengali leave wide gaps, so chapter text is left-aligned on phones */
+@media (max-width:600px){
+  .chapter-text p{text-align:left;}
+}
 .chapter-text blockquote p:last-child{margin-bottom:0;}
 .article-body hr{border:0;text-align:center;margin:2.2rem 0;color:var(--ink-soft);}
 .article-body hr::after{content:"* * *";letter-spacing:.6em;font-family:var(--mono);}
