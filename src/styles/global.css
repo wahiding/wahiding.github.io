@@ -376,6 +376,18 @@ footer.site-footer .floc{color:var(--ink-soft);font-size:.88rem;margin-top:.2rem
 .article-body li{margin-bottom:.6rem;}
 .article-body strong{color:var(--ink);}
 
+/* Novel chapters: roomier Bengali text, scene breaks, chapter list + prev/next */
+.chapter-text p{line-height:1.95;font-size:1.12rem;}
+.chapter-text blockquote{font-style:normal;line-height:1.9;}
+.chapter-text blockquote p:last-child{margin-bottom:0;}
+.article-body hr{border:0;text-align:center;margin:2.2rem 0;color:var(--ink-soft);}
+.article-body hr::after{content:"* * *";letter-spacing:.6em;font-family:var(--mono);}
+.chapter-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.6rem;}
+.chapter-list a{display:flex;align-items:center;gap:1rem;padding:.9rem 1.2rem;border:2px solid var(--ink);border-radius:14px;background:var(--bg);color:var(--ink);text-decoration:none;font-weight:600;}
+.chapter-list a:hover{background:var(--ink);color:var(--cream);}
+.chapter-num{font-family:var(--mono);font-size:.8rem;opacity:.7;min-width:1.4rem;}
+.chapter-nav{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:0 0 1.4rem;max-width:740px;}
+
 @media (max-width:900px){
   .hero .wrap,.about .wrap{grid-template-columns:1fr;}
   .expertise-grid{grid-template-columns:1fr 1fr;}

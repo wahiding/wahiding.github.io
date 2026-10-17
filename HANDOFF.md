@@ -50,13 +50,30 @@ src/layouts/Layout.astro   — shared nav (Polymath, Expertise, Personas▾, Dis
 src/styles/global.css      — design tokens + all component styles (see Design system above)
 src/pages/index.astro      — homepage
 src/pages/qa-engineer.astro — REAL content, sourced from actual résumé, incl. real career timeline
-src/pages/writer.astro     — mostly draft, but the Avyantar novel callout is real
+src/pages/writer.astro     — REWRITTEN with the user's own answers (vault for unexpressed emotion,
+                                poems, travel/personal writing, 23 er Diary, novel callout). QA/technical
+                                writing deliberately lives on the QA page, not here.
 src/pages/artist.astro     — draft prose, but REAL painting gallery (11 real works, masonry layout)
-src/pages/filmmaker.astro  — full draft/placeholder (⚠ banner shown)
-src/pages/psychology.astro — full draft/placeholder (⚠ banner shown)
-src/pages/collector.astro  — full draft/placeholder (⚠ banner shown)
-src/pages/avyantar-ch1.astro — real Chapter 1 text (Bengali), pulled byte-exact from
-                                the user's original live site (SQA1.html-style pages)
+src/pages/_filmmaker.astro, _psychology.astro, _collector.astro — unpublished drafts (leading
+                                underscore = not routed; see "Known gaps" #2 for how to publish)
+src/content/novel/1.md..9.md — the Avyantar (অভ্যন্তর) REWRITE, 9 chapters, imported from the
+                                gitignored Resources/Novel/rewrite/*.md (the GitHub build can't read
+                                Resources/, so the repo copy is what's published). To re-sync after
+                                editing the source files, redo the import: each file's first two lines
+                                ("# label" / "## title") become frontmatter (chapter/label/title), the
+                                rest is the body byte-for-byte. Schema: src/content/config.ts.
+src/pages/avyantar/index.astro + [slug].astro — novel landing page (blurb + chapter list) and one page
+                                per chapter at /avyantar/N/ with prev/next. /avyantar-ch1 redirects to
+                                /avyantar/1/ (astro.config.mjs). `markdown.smartypants` is OFF so the
+                                prose keeps its exact punctuation. Em dashes in the novel are intentional.
+                                Story reference: Resources/Novel/notes/story-bible.md (don't spoil the
+                                twist in blurbs). The old "Shofique/Anis, 12 chapters" version is superseded.
+                                CHAPTER BANNER IMAGES: one 16:9 image per chapter, matching the dark chalk-pastel
+                                cover. Briefs/prompts: Resources/Novel/notes/chapter-image-briefs.md. Drop
+                                chapter-N.(jpg|png|webp) into Resources/Novel/images/, run
+                                `node scripts/novel-images.mjs` (resizes into public/images/novel/chapter-N.jpg),
+                                and [slug].astro shows the banner automatically (no image = no banner). Alt text
+                                per chapter lives in the imageAlts map in [slug].astro.
 src/pages/blog/*.astro     — two real QA blog posts, full text pulled from the original live
                                 site, now with real header images (public/images/blog/)
 public/images/             — real photos + paintings, sourced from Resources/ (gitignored)

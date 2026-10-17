@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+const chapters = (await getCollection('novel')).sort((a, b) => a.data.chapter - b.data.chapter);
+---
+<Layout
+  title="অভ্যন্তর (Avyantar), a Bengali novel | Wahidul Alam Nahid"
+  description="Read Avyantar (অভ্যন্তর), a Bengali psychological novel in nine chapters by Wahidul Alam Nahid. A reclusive writer, a dead telephone, and a young reporter."
+  breadcrumbs={[{ label: 'Writer', href: '/writer' }, { label: 'Avyantar', href: '/avyantar' }]}
+>
+
+  <header class="article-hero">
+    <div class="wrap">
+      <div class="meta">Novel · Bengali · 9 chapters</div>
+      <h1 lang="bn">অভ্যন্তর</h1>
+      <p class="lede" style="margin-top:.6rem;">In a crumbling house in Bakultala, a reclusive writer cannot write a single line, and a dead telephone rings every night at 11:50. Then a young reporter arrives for an interview.</p>
+      <div class="novel-banner">
+        <img src="/images/avyantar-cover.jpg" alt="Avyantar: illustration of a man looking out a window at a passing train" />
+      </div>
+    </div>
+  </header>
+
+  <section class="article-body">
+    <div class="wrap">
+      <blockquote lang="bn" style="text-align:left;">বকুলতলার এক জীর্ণ বাড়িতে এক নিঃসঙ্গ লেখক একটা লাইনও লিখতে পারেন না। প্রতি রাতে এগারোটা পঞ্চাশে বেজে ওঠে একটা মরা টেলিফোন। তারপর একদিন সাক্ষাৎকার নিতে আসে এক তরুণ সাংবাদিক।</blockquote>
+
+      <p><a class="btn-primary" href="/avyantar/1/">Start reading, Chapter 1 →</a></p>
+
+      <span class="kicker" style="color:var(--rust);margin-top:2rem;">Chapters</span>
+      <ol class="chapter-list">
+        {chapters.map((c) => (
+          <li>
+            <a href={`/avyantar/${c.slug}/`}>
+              <span class="chapter-num">{c.data.chapter}</span>
+              <span lang="bn">{c.data.label}: {c.data.title}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <div class="back-link wrap"><a class="btn-ghost" href="/writer">← Back to Writer</a></div>
+
+</Layout>

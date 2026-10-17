@@ -1,0 +1,71 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const chapters = (await getCollection('novel')).sort((a, b) => a.data.chapter - b.data.chapter);
+  return chapters.map((entry, i) => ({
+    params: { slug: entry.slug },
+    props: { entry, prev: chapters[i - 1], next: chapters[i + 1], total: chapters.length },
+  }));
+}
+
+const { entry, prev, next, total } = Astro.props;
+const { Content } = await entry.render();
+const { chapter, label, title } = entry.data;
+
+// Banner image: shown only if public/images/novel/chapter-N.jpg exists
+// (generate it with `node scripts/novel-images.mjs`; briefs are in Resources/Novel/notes).
+const imageAlts: Record<number, string> = {
+  1: 'A black wall telephone in a dark corridor, its receiver swinging on the cord, a man sitting on the floor beneath it.',
+  2: 'A man on an old verandah holding a letter, an empty chair beside him, as a young woman emerges through creepers at the gate in the late afternoon.',
+  3: 'A man facing a tall flaking mirror in a dusty room, his reflection slightly different from him.',
+  4: 'A storm-lit corridor seen from a doorway, a young woman hiding a small red recorder light in her hand, and a man kneeling by a telephone at the far end with his hands over his ears.',
+  5: 'A young woman bending over an open bound newspaper and a paperback that both show the same small photo of a man, in a dim library while an older clerk watches from behind.',
+  6: 'A man in a white panjabi walking away from a ruined roofless temple beside a pond at dusk.',
+  7: 'A dusty child\'s room with a small bed, a doll, a red wooden toy train, a leather bag with a hospital tag and a photo frame on a table, in a shaft of evening light.',
+  8: 'A family seen from behind at a mountain railway loop, a boy pointing at the white Kanchenjunga, a small girl in a red cap in her mother\'s arms, and a small blue steam engine waiting on the track.',
+  9: "A man writing at a desk by lamplight, calm and absorbed, while a distant train's lit windows pass beyond the banyan tree outside the window.",
+};
+const imageFile = `chapter-${chapter}.jpg`;
+const hasImage = fs.existsSync(path.join(process.cwd(), 'public', 'images', 'novel', imageFile));
+---
+<Layout
+  title={`${label}: ${title} | অভ্যন্তর | Wahidul Alam Nahid`}
+  description={`Chapter ${chapter} of Avyantar (অভ্যন্তর), a Bengali psychological novel by Wahidul Alam Nahid: ${title}.`}
+  breadcrumbs={[
+    { label: 'Writer', href: '/writer' },
+    { label: 'Avyantar', href: '/avyantar' },
+    { label: `Chapter ${chapter}`, href: `/avyantar/${entry.slug}` },
+  ]}
+>
+
+  <header class="article-hero">
+    <div class="wrap">
+      <div class="meta">Novel · অভ্যন্তর (Avyantar) · Chapter {chapter} of {total}</div>
+      <h1 lang="bn">{label}: {title}</h1>
+      {hasImage && (
+        <div class="novel-banner">
+          <img src={`/images/novel/${imageFile}`} alt={imageAlts[chapter]} width="1600" height="900" />
+        </div>
+      )}
+    </div>
+  </header>
+
+  <section class="article-body">
+    <div class="wrap chapter-text" lang="bn">
+      <Content />
+    </div>
+  </section>
+
+  <nav class="chapter-nav wrap" aria-label="Chapter navigation">
+    {prev ? <a class="btn-ghost" href={`/avyantar/${prev.slug}/`}>← Chapter {prev.data.chapter}</a> : <span></span>}
+    <a class="btn-ghost" href="/avyantar">All chapters</a>
+    {next ? <a class="btn-primary" href={`/avyantar/${next.slug}/`}>Chapter {next.data.chapter} →</a> : <span></span>}
+  </nav>
+
+  <div class="back-link wrap"><a class="btn-ghost" href="/writer">← Back to Writer</a></div>
+
+</Layout>
