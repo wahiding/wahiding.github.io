@@ -73,7 +73,9 @@ src/pages/avyantar/index.astro + [slug].astro — novel landing page (blurb + ch
                                 chapter-N.(jpg|png|webp) into Resources/Novel/images/, run
                                 `node scripts/novel-images.mjs` (resizes into public/images/novel/chapter-N.jpg),
                                 and [slug].astro shows the banner automatically (no image = no banner). Alt text
-                                per chapter lives in the imageAlts map in [slug].astro.
+                                per chapter lives in the imageAlts map in [slug].astro. The same banner is the
+                                chapter's og:image/twitter:image (Layout.astro `shareImage` prop: {src,width,height,alt});
+                                the novel landing page uses the cover; every other page uses /og-image.jpg.
 src/pages/blog/*.astro     — two real QA blog posts, full text pulled from the original live
                                 site, now with real header images (public/images/blog/)
 public/images/             — real photos + paintings, sourced from Resources/ (gitignored)

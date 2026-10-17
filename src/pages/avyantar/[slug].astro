@@ -40,6 +40,7 @@ const hasImage = fs.existsSync(path.join(process.cwd(), 'public', 'images', 'nov
     { label: 'Avyantar', href: '/avyantar' },
     { label: `Chapter ${chapter}`, href: `/avyantar/${entry.slug}` },
   ]}
+  shareImage={hasImage ? { src: `/images/novel/${imageFile}`, width: 1600, height: 900, alt: imageAlts[chapter] } : undefined}
 >
 
   <header class="article-hero">
