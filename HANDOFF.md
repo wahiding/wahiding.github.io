@@ -36,6 +36,8 @@ Old dispatch-concept files are archived in `legacy-dispatch-site/` (not deleted,
 
 **Gotcha for future palette work**: several rules use hardcoded hex instead of tokens (`.cta-band p` color, `.cta-band .btn-primary` background, `carousel-arrow` box-shadow tint) — if you swap the palette again, grep for stray hex codes in `global.css`, don't assume changing `:root` alone covers everything.
 
+**Bengali typography**: anything with `lang="bn"` uses Noto Serif Bengali (Google Fonts, loaded in Layout.astro; `--bn` token in global.css, with Kalpurush / Shonar Bangla / Nirmala UI fallbacks). `:lang(bn)` also resets letter-spacing to 0 and gives h1-h3 line-height 1.4 so vowel marks aren't clipped. Chapter body text (`.chapter-text p`) is 1.2rem / 1.9 line-height in `--ink`. Always mark Bengali content with `lang="bn"`, or it falls back to the Latin fonts.
+
 **Typography**: all `<p>` elements are `text-align: justify` site-wide (`hyphens: none` — user explicitly does not want words split across lines; `text-align-last: left` so the last line of a paragraph doesn't stretch weirdly). Exceptions where centered/left alignment was intentionally restored: `.cta-band p` (forced back to `text-align:center` since the global justify rule silently overrode the inherited center-alignment from its parent — inheritance always loses to *any* explicit rule on the child, regardless of specificity, which is why this broke in the first place). `#expertise .section-head` has `max-width:100%` (not the shared 56ch) so its intro paragraphs stretch to fill the same width as the 4-card carousel below, per user request — this is scoped to that one section, not applied to the shared `.section-head` class globally.
 
 ## Site structure
